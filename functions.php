@@ -1,10 +1,14 @@
 <?php
-function debug($data) : void
+function debug($data,$log = true): void
 {
-    echo "<pre>" . print_r($data, 1) . "</pre>";
+    if ($log) {
+        file_put_contents(__DIR__ . '/logs.txt', print_r($data, true), FILE_APPEND);
+    } else {
+        echo "<pre>" . print_r($data, 1) . "</pre>";
+    }
 }
 
-function send_request(string $method, array $params = []) :mixed
+function send_request(string $method, array $params = []): mixed
 {
     $url = BASE_URL . $method;
     if (!empty($params)) {
