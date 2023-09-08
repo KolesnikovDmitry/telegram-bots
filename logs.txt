@@ -1,0 +1,107 @@
+stdClass Object
+(
+    [update_id] => 484906227
+    [message] => stdClass Object
+        (
+            [message_id] => 48
+            [from] => stdClass Object
+                (
+                    [id] => 260104315
+                    [is_bot] => 
+                    [first_name] => Дмитрий
+                    [last_name] => Колесников
+                    [username] => SlashDim
+                    [language_code] => ru
+                )
+
+            [chat] => stdClass Object
+                (
+                    [id] => 260104315
+                    [first_name] => Дмитрий
+                    [last_name] => Колесников
+                    [username] => SlashDim
+                    [type] => private
+                )
+
+            [date] => 1694074043
+            [text] => 145
+        )
+
+)
+stdClass Object
+(
+    [update_id] => 484906231
+    [message] => stdClass Object
+        (
+            [message_id] => 52
+            [from] => stdClass Object
+                (
+                    [id] => 260104315
+                    [is_bot] => 
+                    [first_name] => Дмитрий
+                    [last_name] => Колесников
+                    [username] => SlashDim
+                    [language_code] => ru
+                )
+
+            [chat] => stdClass Object
+                (
+                    [id] => 260104315
+                    [first_name] => Дмитрий
+                    [last_name] => Колесников
+                    [username] => SlashDim
+                    [type] => private
+                )
+
+            [date] => 1694152460
+            [text] => 45
+        )
+
+)
+stdClass Object
+(
+    [ok] => 1
+    [result] => stdClass Object
+        (
+            [message_id] => 53
+            [from] => stdClass Object
+                (
+                    [id] => 6619351816
+                    [is_bot] => 1
+                    [first_name] => Udemy Test Bot
+                    [username] => Udemy_1TestBot
+                )
+
+            [chat] => stdClass Object
+                (
+                    [id] => 260104315
+                    [first_name] => Дмитрий
+                    [last_name] => Колесников
+                    [username] => SlashDim
+                    [type] => private
+                )
+
+            [date] => 1694152460
+            [text] => Hello, Дмитрий
+Вы написали: 45
+            [entities] => Array
+                (
+                    [0] => stdClass Object
+                        (
+                            [offset] => 7
+                            [length] => 7
+                            [type] => bold
+                        )
+
+                    [1] => stdClass Object
+                        (
+                            [offset] => 28
+                            [length] => 2
+                            [type] => italic
+                        )
+
+                )
+
+        )
+
+)
