@@ -1,107 +1,197 @@
-stdClass Object
+Telegram\Bot\Objects\Update Object
 (
-    [update_id] => 484906227
-    [message] => stdClass Object
+    [items:protected] => Array
         (
-            [message_id] => 48
-            [from] => stdClass Object
+            [update_id] => 484906246
+            [message] => Array
                 (
-                    [id] => 260104315
-                    [is_bot] => 
-                    [first_name] => Дмитрий
-                    [last_name] => Колесников
-                    [username] => SlashDim
-                    [language_code] => ru
-                )
-
-            [chat] => stdClass Object
-                (
-                    [id] => 260104315
-                    [first_name] => Дмитрий
-                    [last_name] => Колесников
-                    [username] => SlashDim
-                    [type] => private
-                )
-
-            [date] => 1694074043
-            [text] => 145
-        )
-
-)
-stdClass Object
-(
-    [update_id] => 484906231
-    [message] => stdClass Object
-        (
-            [message_id] => 52
-            [from] => stdClass Object
-                (
-                    [id] => 260104315
-                    [is_bot] => 
-                    [first_name] => Дмитрий
-                    [last_name] => Колесников
-                    [username] => SlashDim
-                    [language_code] => ru
-                )
-
-            [chat] => stdClass Object
-                (
-                    [id] => 260104315
-                    [first_name] => Дмитрий
-                    [last_name] => Колесников
-                    [username] => SlashDim
-                    [type] => private
-                )
-
-            [date] => 1694152460
-            [text] => 45
-        )
-
-)
-stdClass Object
-(
-    [ok] => 1
-    [result] => stdClass Object
-        (
-            [message_id] => 53
-            [from] => stdClass Object
-                (
-                    [id] => 6619351816
-                    [is_bot] => 1
-                    [first_name] => Udemy Test Bot
-                    [username] => Udemy_1TestBot
-                )
-
-            [chat] => stdClass Object
-                (
-                    [id] => 260104315
-                    [first_name] => Дмитрий
-                    [last_name] => Колесников
-                    [username] => SlashDim
-                    [type] => private
-                )
-
-            [date] => 1694152460
-            [text] => Hello, Дмитрий
-Вы написали: 45
-            [entities] => Array
-                (
-                    [0] => stdClass Object
+                    [message_id] => 102
+                    [from] => Array
                         (
-                            [offset] => 7
-                            [length] => 7
-                            [type] => bold
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
                         )
 
-                    [1] => stdClass Object
+                    [chat] => Array
                         (
-                            [offset] => 28
-                            [length] => 2
-                            [type] => italic
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1694189759
+                    [text] => /help
+                    [entities] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [offset] => 0
+                                    [length] => 5
+                                    [type] => bot_command
+                                )
+
                         )
 
                 )
 
         )
 
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 484906247
+            [message] => Array
+                (
+                    [message_id] => 104
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1694189768
+                    [text] => /test
+                    [entities] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [offset] => 0
+                                    [length] => 5
+                                    [type] => bot_command
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 484906248
+            [message] => Array
+                (
+                    [message_id] => 106
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1694189892
+                    [text] => 123
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 484906249
+            [message] => Array
+                (
+                    [message_id] => 108
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1694189909
+                    [sticker] => Array
+                        (
+                            [width] => 512
+                            [height] => 512
+                            [emoji] => 🥳
+                            [set_name] => HotCherry
+                            [is_animated] => 1
+                            [is_video] => 
+                            [type] => regular
+                            [thumbnail] => Array
+                                (
+                                    [file_id] => AAMCAgADGQEAA2xk-0lVcbb41fC-JxXGLtsvIUXYAAMbAAPANk8Tfb2Kg8tETWoBAAdtAAMwBA
+                                    [file_unique_id] => AQADGwADwDZPE3I
+                                    [file_size] => 5732
+                                    [width] => 128
+                                    [height] => 128
+                                )
+
+                            [thumb] => Array
+                                (
+                                    [file_id] => AAMCAgADGQEAA2xk-0lVcbb41fC-JxXGLtsvIUXYAAMbAAPANk8Tfb2Kg8tETWoBAAdtAAMwBA
+                                    [file_unique_id] => AQADGwADwDZPE3I
+                                    [file_size] => 5732
+                                    [width] => 128
+                                    [height] => 128
+                                )
+
+                            [file_id] => CAACAgIAAxkBAANsZPtJVXG2-NXwvicVxi7bLyFF2AADGwADwDZPE329ioPLRE1qMAQ
+                            [file_unique_id] => AgADGwADwDZPEw
+                            [file_size] => 14252
+                        )
+
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
 )

@@ -4,24 +4,65 @@ ini_set('display_errors', 0);
 ini_set('log_errors', 'on');
 ini_set('error_log', __DIR__ . "/errors.log");
 
+require __DIR__.'/vendor/autoload.php';
 require_once 'config.php';
 require_once 'functions.php';
 
-//var_dump(BASE_URL . 'setWebhook?url=https://tel-bots.ru/bots/1/');
-
-$update = json_decode(file_get_contents('php://input'));
+$telegram = new \Telegram\Bot\Api(TOKEN);
+$update = $telegram->getWebhookUpdate();
 
 debug($update);
 
-$text = isset($update->message->text) ? "Вы написали: <i>{$update->message->text}</i>" : "<u>Добавьте                 текст</u>";
-$chat_id = $update->message->chat->id ?? 0;
-$name = $update->message->from->first_name ?? "Гость";
+$chat_id = $update['message']['chat']['id'] ?? 0;
+$text = $update['message']['text'] ?? "";
+$name = $update['message']['from']['first_name'] ?? "Гость";
 
-if ($chat_id) {
-    $res = send_request("sendMessage", [
+if (!$chat_id) {
+    die;
+}
+
+if ($text == '/help') {
+        $telegram->sendMessage([
+            'chat_id' => $chat_id,
+            'text' => "Show bot help",
+            'parse_mode' => 'HTML',
+        ]);
+} elseif ($text == '/test') {
+    $telegram->sendMessage([
         'chat_id' => $chat_id,
-        'text' => "Hello, <b>{$name}</b>" . PHP_EOL . $text,
+        'text' => "Hello, <b>{$name}</b>!" . PHP_EOL . "Test command...",
         'parse_mode' => 'HTML',
     ]);
-    debug($res);
+} elseif (!empty($text)) {
+    $telegram->sendMessage([
+        'chat_id' => $chat_id,
+        'text' => "Hello, <b>{$name}</b>!" . PHP_EOL . "You wrote: <i>{$text}</i>",
+        'parse_mode' => 'HTML',
+    ]);
+} else {
+    $telegram->sendMessage([
+        'chat_id' => $chat_id,
+        'text' => "Hello, <b>{$name}</b>!" . PHP_EOL . "<u>I need some text</u>",
+        'parse_mode' => 'HTML',
+    ]);
 }
+
+
+//var_dump(BASE_URL . 'setWebhook?url=https://tel-bots.ru/bots/1/');
+
+//$update = json_decode(file_get_contents('php://input'));
+
+//debug($update);
+//
+//$text = isset($update->message->text) ? "Вы написали: <i>{$update->message->text}</i>" : "<u>Добавьте                 текст</u>";
+//$chat_id = $update->message->chat->id ?? 0;
+//$name = $update->message->from->first_name ?? "Гость";
+//
+//if ($chat_id) {
+//    $res = send_request("sendMessage", [
+//        'chat_id' => $chat_id,
+//        'text' => "Hello, <b>{$name}</b>" . PHP_EOL . $text,
+//        'parse_mode' => 'HTML',
+//    ]);
+//    debug($res);
+//}
