@@ -22,11 +22,15 @@ if (!$chat_id) {
 }
 
 if ($text == '/help') {
+    try {
         $telegram->sendMessage([
             'chat_id' => $chat_id,
             'text' => "Show bot help",
             'parse_mode' => 'HTML',
         ]);
+    } catch (\Telegram\Bot\Exceptions\TelegramSDKException $e) {
+        error_log($e->getMessage() . PHP_EOL, 3, __DIR__ . "/errors.log");
+    }
 } elseif ($text == '/test') {
     $telegram->sendMessage([
         'chat_id' => $chat_id,
