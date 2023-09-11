@@ -195,3 +195,98 @@ Telegram\Bot\Objects\Update Object
     [escapeWhenCastingToString:protected] => 
     [updateType:protected] => message
 )
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 484906253
+            [message] => Array
+                (
+                    [message_id] => 115
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1694420156
+                    [text] => photo
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+Telegram\Bot\Objects\Message Object
+(
+    [items:protected] => Array
+        (
+            [message_id] => 116
+            [from] => Array
+                (
+                    [id] => 6619351816
+                    [is_bot] => 1
+                    [first_name] => Udemy Test Bot
+                    [username] => Udemy_1TestBot
+                )
+
+            [chat] => Array
+                (
+                    [id] => 260104315
+                    [first_name] => Дмитрий
+                    [last_name] => Колесников
+                    [username] => SlashDim
+                    [type] => private
+                )
+
+            [date] => 1694420157
+            [photo] => Array
+                (
+                    [0] => Array
+                        (
+                            [file_id] => AgACAgIAAxkDAAN0ZP7MvSzNVz5bL-gjHyLZKexUYukAAhnPMRsRsfhLRiWjL6mqyqMBAAMCAANzAAMwBA
+                            [file_unique_id] => AQADGc8xGxGx-Et4
+                            [file_size] => 1202
+                            [width] => 90
+                            [height] => 42
+                        )
+
+                    [1] => Array
+                        (
+                            [file_id] => AgACAgIAAxkDAAN0ZP7MvSzNVz5bL-gjHyLZKexUYukAAhnPMRsRsfhLRiWjL6mqyqMBAAMCAANtAAMwBA
+                            [file_unique_id] => AQADGc8xGxGx-Ety
+                            [file_size] => 13519
+                            [width] => 320
+                            [height] => 151
+                        )
+
+                    [2] => Array
+                        (
+                            [file_id] => AgACAgIAAxkDAAN0ZP7MvSzNVz5bL-gjHyLZKexUYukAAhnPMRsRsfhLRiWjL6mqyqMBAAMCAAN4AAMwBA
+                            [file_unique_id] => AQADGc8xGxGx-Et9
+                            [file_size] => 34658
+                            [width] => 720
+                            [height] => 340
+                        )
+
+                )
+
+            [caption] => Some photo
+        )
+
+    [escapeWhenCastingToString:protected] => 
+)

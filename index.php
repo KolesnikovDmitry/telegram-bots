@@ -37,6 +37,13 @@ if ($text == '/help') {
         'text' => "Hello, <b>{$name}</b>!" . PHP_EOL . "Test command...",
         'parse_mode' => 'HTML',
     ]);
+} elseif ($text === "photo" ) {
+    $res = $telegram->sendPhoto([
+        'chat_id' => $chat_id,
+        'photo' => \Telegram\Bot\FileUpload\InputFile::create('https://loremflickr.com/720/340'),
+        'caption' => 'Some photo',
+    ]);
+    debug($res);
 } elseif (!empty($text)) {
     $telegram->sendMessage([
         'chat_id' => $chat_id,
@@ -52,21 +59,3 @@ if ($text == '/help') {
 }
 
 
-//var_dump(BASE_URL . 'setWebhook?url=https://tel-bots.ru/bots/1/');
-
-//$update = json_decode(file_get_contents('php://input'));
-
-//debug($update);
-//
-//$text = isset($update->message->text) ? "Вы написали: <i>{$update->message->text}</i>" : "<u>Добавьте                 текст</u>";
-//$chat_id = $update->message->chat->id ?? 0;
-//$name = $update->message->from->first_name ?? "Гость";
-//
-//if ($chat_id) {
-//    $res = send_request("sendMessage", [
-//        'chat_id' => $chat_id,
-//        'text' => "Hello, <b>{$name}</b>" . PHP_EOL . $text,
-//        'parse_mode' => 'HTML',
-//    ]);
-//    debug($res);
-//}
