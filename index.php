@@ -47,11 +47,13 @@ if ($text == '/help') {
         'caption' => 'Some photo',
     ]);
 } elseif ($text == 'doc'){
-    $telegram->sendDocument([
+    $res = $telegram->sendDocument([
         'chat_id' => $chat_id,
-        'document' => \Telegram\Bot\FileUpload\InputFile::create('https://loremflickr.com/720/340'),
-//        'thumbnail' => \Telegram\Bot\FileUpload\InputFile::create(__DIR__ . '/img/file.png')
+//        'document' => \Telegram\Bot\FileUpload\InputFile::create('https://loremflickr.com/720/340'),
+        'document' => "BQACAgIAAxkDAAObZQLAM_fEVuQZVBDO7XiRLBbVQ4YAApczAALCBRlI6G3vDaStML0wBA",
+        'thumbnail' => \Telegram\Bot\FileUpload\InputFile::create(__DIR__ . '/img/file.png')
     ]);
+    debug($res);
 } elseif (!empty($text)) {
     $telegram->sendMessage([
         'chat_id' => $chat_id,
