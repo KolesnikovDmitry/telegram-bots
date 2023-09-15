@@ -7,7 +7,12 @@ ini_set('error_log', __DIR__ . "/errors.log");
 require __DIR__ . '/vendor/autoload.php';
 require_once 'config.php';
 require_once 'functions.php';
+require_once 'keyboards.php';
 
+/**
+ * @var array $keyboard1
+ * @var array $keyboard2
+ */
 $telegram = new \Telegram\Bot\Api(TOKEN);
 $update = $telegram->getWebhookUpdate();
 
@@ -20,8 +25,19 @@ $name = $update['message']['from']['first_name'] ?? "Гость";
 if (!$chat_id) {
     die;
 }
-
-if ($text == '/help') {
+if ($text == '/start') {
+    $telegram->sendMessage([
+        'chat_id' => $chat_id,
+        'text' => "WELCOME",
+        'reply_markup' => json_encode($keyboard1),
+    ]);
+} elseif ($text == 'Keyboard2') {
+    $telegram->sendMessage([
+        'chat_id' => $chat_id,
+        'text' => "Change keyboard",
+        'reply_markup' => new Telegram\Bot\Keyboard\Keyboard($keyboard2),
+    ]);
+}elseif  ($text == '/help') {
     try {
         $telegram->sendMessage([
             'chat_id' => $chat_id,
@@ -62,14 +78,17 @@ if ($text == '/help') {
     ]);
     debug($res);
 } elseif ($text == 'group') {
-//    $telegram->sendMediaGroup([
-//        'chat_id' => $chat_id,
-//        'media' => json_encode([
-//            ['type' => 'photo', 'media' => 'https://tel-bots.ru/bots/1/img/1.jpg', 'caption' => "Photo 1"],
-//            ['type' => 'photo', 'media' => 'https://tel-bots.ru/bots/1/img/2.jpg', 'caption' => "Photo 2"],
-//            ['type' => 'photo', 'media' => 'https://tel-bots.ru/bots/1/img/3.jpg', 'caption' => "Photo 3"],
-//        ]),
-//    ]);
+    $telegram->sendMediaGroup([
+        'chat_id' => $chat_id,
+        'media' => json_encode([
+            ['type' => 'document', 'media' => 'attach://logs.txt', 'caption' => "Doc 1"],
+            ['type' => 'document', 'media' => 'attach://errors.log', 'caption' => "Doc 2"],
+            ['type' => 'document', 'media' => 'attach://test.txt', 'caption' => "Doc 3"],
+        ]),
+        'logs.txt' => \Telegram\Bot\FileUpload\InputFile::create(__DIR__ . '/logs.txt'),
+        'errors.log' => \Telegram\Bot\FileUpload\InputFile::create(__DIR__ . '/errors.log'),
+        'test.txt' => \Telegram\Bot\FileUpload\InputFile::create(__DIR__ . '/test.txt'),
+    ]);
 } elseif (!empty($text)) {
     $telegram->sendMessage([
         'chat_id' => $chat_id,
