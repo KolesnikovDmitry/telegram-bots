@@ -57,6 +57,12 @@ if ($text == '/start') {
     } catch (\Telegram\Bot\Exceptions\TelegramSDKException $e) {
         error_log($e->getMessage() . PHP_EOL, 3, __DIR__ . '/errors.log');
     }
+} elseif ($text == $phrases['close']) {
+    $telegram->sendMessage([
+        'chat_id' => $chat_id,
+        'text' => "Close keyboard",
+        'reply_markup' => new Telegram\Bot\Keyboard\Keyboard(['remove_keyboard'=> true]),
+    ]);
 } elseif ($text == '/test') {
     $telegram->sendMessage([
         'chat_id' => $chat_id,
@@ -76,7 +82,7 @@ if ($text == '/start') {
         'caption' => 'Some photo',
     ]);
 //    debug($res);
-} elseif ($text == 'doc') {
+}elseif ($text == 'doc') {
     $res = $telegram->sendDocument([
         'chat_id' => $chat_id,
         'document' => 'BQACAgIAAxkDAAOwZF4HGu3bvnXzcu_8d4yZYQfgJqUAAnUoAAIvMPFKSe5JkeRshEkvBA',

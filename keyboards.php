@@ -6,7 +6,8 @@
 
 $keyboard1 = [
     'keyboard' => [
-        [$phrases['contact'], $phrases['location']],
+        [['text'=> $phrases['contact'], 'request_contact'=> true],
+        ['text'=> $phrases['location'], 'request_location' => true ]],
         [$phrases['close'], $phrases['keyboard2']],
     ],
     'resize_keyboard' => true,
