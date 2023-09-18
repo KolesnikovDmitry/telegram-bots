@@ -106,4 +106,3 @@ if ($text == '/start') {
         'text' => "Hello, <b>{$name}</b>!" . PHP_EOL . "<u>I need some text</u>",
         'parse_mode' => 'HTML',
     ]);
-}
