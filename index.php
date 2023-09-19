@@ -20,9 +20,18 @@ require_once 'keyboards.php';
 $telegram = new \Telegram\Bot\Api(TOKEN);
 $update = $telegram->getWebhookUpdate();
 
-//debug($update);
+debug($update);
 
-$chat_id = $update['message']['chat']['id'] ?? 0;
+//$chat_id = $update['message']['chat']['id'] ?? 0;
+
+if (isset($update['message']['chat']['id'])) {
+    $chat_id = ($update['message']['chat']['id']);
+} elseif (isset($update['callback_query']['message']['chat']['id'])) {
+    $chat_id = ($update['callback_query']['message']['chat']['id']);
+}
+
+
+
 $text = $update['message']['text'] ?? '';
 $name = $update['message']['from']['first_name'] ?? 'Guest';
 
@@ -54,7 +63,13 @@ if ($text == '/start') {
         'text' => "Show inline Keyboard",
         'reply_markup' => new Telegram\Bot\Keyboard\Keyboard($inline_keyboard1),
     ]);
-} elseif ($text == '/help' || $text == $phrases['help']) {
+} elseif (isset($update['callback_query'])) {
+    $telegram->answerCallbackQuery([
+        'callback_query_id' => $update['callback_query']['id'],
+        'text' => "Pressed Button {$update['callback_query']['data']}",
+        'show_alert'=> true
+    ]);
+}elseif ($text == '/help' || $text == $phrases['help']) {
     try {
         $telegram->sendMessage([
             'chat_id' => $chat_id,

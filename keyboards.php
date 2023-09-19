@@ -27,7 +27,7 @@ $keyboard2 = [
 $inline_keyboard1 = [
     'inline_keyboard' => [
         [['text'=> $phrases['url'], 'url'=> 'https://google.com'],
-            ['text'=> $phrases['cb_btn'], 'callback_data' => 'cb_btn_test']],
+        ['text'=> $phrases['cb_btn'], 'callback_data' => 'cb_btn_test']],
     ],
 ];
 

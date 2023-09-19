@@ -2,10 +2,10 @@ Telegram\Bot\Objects\Update Object
 (
     [items:protected] => Array
         (
-            [update_id] => 484906272
-            [message] => Array
+            [update_id] => 484906379
+            [callback_query] => Array
                 (
-                    [message_id] => 153
+                    [id] => 1117139530190723246
                     [from] => Array
                         (
                             [id] => 260104315
@@ -16,165 +16,60 @@ Telegram\Bot\Objects\Update Object
                             [language_code] => ru
                         )
 
-                    [chat] => Array
+                    [message] => Array
                         (
-                            [id] => 260104315
-                            [first_name] => Дмитрий
-                            [last_name] => Колесников
-                            [username] => SlashDim
-                            [type] => private
+                            [message_id] => 362
+                            [from] => Array
+                                (
+                                    [id] => 6619351816
+                                    [is_bot] => 1
+                                    [first_name] => Udemy Test Bot
+                                    [username] => Udemy_1TestBot
+                                )
+
+                            [chat] => Array
+                                (
+                                    [id] => 260104315
+                                    [first_name] => Дмитрий
+                                    [last_name] => Колесников
+                                    [username] => SlashDim
+                                    [type] => private
+                                )
+
+                            [date] => 1695108646
+                            [text] => Show inline Keyboard
+                            [reply_markup] => Array
+                                (
+                                    [inline_keyboard] => Array
+                                        (
+                                            [0] => Array
+                                                (
+                                                    [0] => Array
+                                                        (
+                                                            [text] => Google
+                                                            [url] => https://google.com/
+                                                        )
+
+                                                    [1] => Array
+                                                        (
+                                                            [text] => Callback button
+                                                            [callback_data] => cb_btn_test
+                                                        )
+
+                                                )
+
+                                        )
+
+                                )
+
                         )
 
-                    [date] => 1694678335
-                    [text] => doc
+                    [chat_instance] => 1420371908199110033
+                    [data] => cb_btn_test
                 )
 
         )
 
     [escapeWhenCastingToString:protected] => 
-    [updateType:protected] => message
-)
-Telegram\Bot\Objects\Message Object
-(
-    [items:protected] => Array
-        (
-            [message_id] => 155
-            [from] => Array
-                (
-                    [id] => 6619351816
-                    [is_bot] => 1
-                    [first_name] => Udemy Test Bot
-                    [username] => Udemy_1TestBot
-                )
-
-            [chat] => Array
-                (
-                    [id] => 260104315
-                    [first_name] => Дмитрий
-                    [last_name] => Колесников
-                    [username] => SlashDim
-                    [type] => private
-                )
-
-            [date] => 1694679092
-            [document] => Array
-                (
-                    [file_name] => test.txt
-                    [mime_type] => text/plain
-                    [thumbnail] => Array
-                        (
-                            [file_id] => AAMCAgADGQMAA5tlAsAz98RW5BlUEM7teJEsFtVDhgAClzMAAsIFGUjobe8NpK0wvQEAB20AAzAE
-                            [file_unique_id] => AQADlzMAAsIFGUhy
-                            [file_size] => 11839
-                            [width] => 300
-                            [height] => 274
-                        )
-
-                    [thumb] => Array
-                        (
-                            [file_id] => AAMCAgADGQMAA5tlAsAz98RW5BlUEM7teJEsFtVDhgAClzMAAsIFGUjobe8NpK0wvQEAB20AAzAE
-                            [file_unique_id] => AQADlzMAAsIFGUhy
-                            [file_size] => 11839
-                            [width] => 300
-                            [height] => 274
-                        )
-
-                    [file_id] => BQACAgIAAxkDAAObZQLAM_fEVuQZVBDO7XiRLBbVQ4YAApczAALCBRlI6G3vDaStML0wBA
-                    [file_unique_id] => AgADlzMAAsIFGUg
-                    [file_size] => 3
-                )
-
-        )
-
-    [escapeWhenCastingToString:protected] => 
-)
-Telegram\Bot\Objects\Update Object
-(
-    [items:protected] => Array
-        (
-            [update_id] => 484906273
-            [message] => Array
-                (
-                    [message_id] => 154
-                    [from] => Array
-                        (
-                            [id] => 260104315
-                            [is_bot] => 
-                            [first_name] => Дмитрий
-                            [last_name] => Колесников
-                            [username] => SlashDim
-                            [language_code] => ru
-                        )
-
-                    [chat] => Array
-                        (
-                            [id] => 260104315
-                            [first_name] => Дмитрий
-                            [last_name] => Колесников
-                            [username] => SlashDim
-                            [type] => private
-                        )
-
-                    [date] => 1694678759
-                    [text] => doc
-                )
-
-        )
-
-    [escapeWhenCastingToString:protected] => 
-    [updateType:protected] => message
-)
-Telegram\Bot\Objects\Message Object
-(
-    [items:protected] => Array
-        (
-            [message_id] => 156
-            [from] => Array
-                (
-                    [id] => 6619351816
-                    [is_bot] => 1
-                    [first_name] => Udemy Test Bot
-                    [username] => Udemy_1TestBot
-                )
-
-            [chat] => Array
-                (
-                    [id] => 260104315
-                    [first_name] => Дмитрий
-                    [last_name] => Колесников
-                    [username] => SlashDim
-                    [type] => private
-                )
-
-            [date] => 1694679092
-            [document] => Array
-                (
-                    [file_name] => test.txt
-                    [mime_type] => text/plain
-                    [thumbnail] => Array
-                        (
-                            [file_id] => AAMCAgADGQMAA5xlAsA014zweqJs1kBR54uDgejMSQACmDMAAsIFGUhRLykjlqbd_gEAB20AAzAE
-                            [file_unique_id] => AQADmDMAAsIFGUhy
-                            [file_size] => 11839
-                            [width] => 300
-                            [height] => 274
-                        )
-
-                    [thumb] => Array
-                        (
-                            [file_id] => AAMCAgADGQMAA5xlAsA014zweqJs1kBR54uDgejMSQACmDMAAsIFGUhRLykjlqbd_gEAB20AAzAE
-                            [file_unique_id] => AQADmDMAAsIFGUhy
-                            [file_size] => 11839
-                            [width] => 300
-                            [height] => 274
-                        )
-
-                    [file_id] => BQACAgIAAxkDAAOcZQLANNeM8HqibNZAUeeLg4HozEkAApgzAALCBRlIUS8pI5am3f4wBA
-                    [file_unique_id] => AgADmDMAAsIFGUg
-                    [file_size] => 3
-                )
-
-        )
-
-    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => callback_query
 )
