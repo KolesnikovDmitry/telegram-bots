@@ -66,8 +66,15 @@ if ($text == '/start') {
 } elseif (isset($update['callback_query'])) {
     $telegram->answerCallbackQuery([
         'callback_query_id' => $update['callback_query']['id'],
-        'text' => "Pressed Button {$update['callback_query']['data']}",
-        'show_alert'=> true
+//        'text' => "Pressed Button {$update['callback_query']['data']}",
+//        'show_alert'=> false
+    ]);
+    $telegram->editMessageText([
+        'chat_id' => $chat_id,
+        'message_id' => $update['callback_query']['message']['message_id'],
+        'text' => 'Show inline Keyboard' . PHP_EOL . '<i>edited ⌚</i>' . date("H:i:s"),
+        'parse_mode' => 'HTML',
+        'reply_markup' => new Telegram\Bot\Keyboard\Keyboard($inline_keyboard1),
     ]);
 }elseif ($text == '/help' || $text == $phrases['help']) {
     try {
