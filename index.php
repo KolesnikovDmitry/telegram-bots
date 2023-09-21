@@ -76,6 +76,12 @@ if ($text == '/start') {
         'parse_mode' => 'HTML',
         'reply_markup' => new Telegram\Bot\Keyboard\Keyboard($inline_keyboard1),
     ]);
+}elseif ($text == 'contact') {
+    $telegram->sendLocation([
+        'chat_id' => $chat_id,
+        'latitude' => 54.00016678926494,
+        'longitude' => 117.99994091369174
+    ]);
 }elseif ($text == '/help' || $text == $phrases['help']) {
     try {
         $telegram->sendMessage([
