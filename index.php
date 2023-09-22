@@ -14,6 +14,7 @@ require_once 'keyboards.php';
 /**
  * @var array $keyboard1
  * @var array $keyboard2
+ * @var array $inline_keyboard1
  */
 
 $telegram = new \Telegram\Bot\Api(TOKEN);
@@ -99,6 +100,12 @@ if ($text == '/start') {
         'logs.txt' => \Telegram\Bot\FileUpload\InputFile::create(__DIR__ . '/logs.txt'),
         'errors.log' => \Telegram\Bot\FileUpload\InputFile::create(__DIR__ . '/errors.log'),
         'test.txt' => \Telegram\Bot\FileUpload\InputFile::create(__DIR__ . '/test.txt'),
+    ]);
+} elseif ($text == $phrases['inline_keyboard1']) {
+    $telegram->sendMessage([
+        'chat_id' => $chat_id,
+        'text' => "Show inline Keyboard",
+        'reply_markup' => new Telegram\Bot\Keyboard\Keyboard($inline_keyboard1),
     ]);
 } elseif (!empty($text)) {
     $telegram->sendMessage([
