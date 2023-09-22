@@ -20,9 +20,18 @@ require_once 'keyboards.php';
 $telegram = new \Telegram\Bot\Api(TOKEN);
 $update = $telegram->getWebhookUpdate();
 
-//debug($update);
+debug($update);
 
-$chat_id = $update['message']['chat']['id'] ?? 0;
+//$chat_id = $update['message']['chat']['id'] ?? 0;
+
+if (isset($update['message']['chat']['id'])) {
+    $chat_id = ($update['message']['chat']['id']);
+} elseif (isset($update['callback_query']['message']['chat']['id'])) {
+    $chat_id = ($update['callback_query']['message']['chat']['id']);
+}
+
+
+
 $text = $update['message']['text'] ?? '';
 $name = $update['message']['from']['first_name'] ?? 'Guest';
 
@@ -48,7 +57,32 @@ if ($text == '/start') {
         'text' => "Change keyboard",
         'reply_markup' => new Telegram\Bot\Keyboard\Keyboard($keyboard1),
     ]);
-} elseif ($text == '/help' || $text == $phrases['help']) {
+} elseif ($text == $phrases['inline_keyboard1']) {
+    $telegram->sendMessage([
+        'chat_id' => $chat_id,
+        'text' => "Show inline Keyboard",
+        'reply_markup' => new Telegram\Bot\Keyboard\Keyboard($inline_keyboard1),
+    ]);
+} elseif (isset($update['callback_query'])) {
+    $telegram->answerCallbackQuery([
+        'callback_query_id' => $update['callback_query']['id'],
+//        'text' => "Pressed Button {$update['callback_query']['data']}",
+//        'show_alert'=> false
+    ]);
+    $telegram->editMessageText([
+        'chat_id' => $chat_id,
+        'message_id' => $update['callback_query']['message']['message_id'],
+        'text' => 'Show inline Keyboard' . PHP_EOL . '<i>edited ⌚</i>' . date("H:i:s"),
+        'parse_mode' => 'HTML',
+        'reply_markup' => new Telegram\Bot\Keyboard\Keyboard($inline_keyboard1),
+    ]);
+}elseif ($text == 'contact') {
+    $telegram->sendLocation([
+        'chat_id' => $chat_id,
+        'latitude' => 54.00016678926494,
+        'longitude' => 117.99994091369174
+    ]);
+}elseif ($text == '/help' || $text == $phrases['help']) {
     try {
         $telegram->sendMessage([
             'chat_id' => $chat_id,
@@ -107,7 +141,7 @@ if ($text == '/start') {
         'text' => "Show inline Keyboard",
         'reply_markup' => new Telegram\Bot\Keyboard\Keyboard($inline_keyboard1),
     ]);
-} elseif (!empty($text)) {
+}elseif (!empty($text)) {
     $telegram->sendMessage([
         'chat_id' => $chat_id,
         'text' => "Hello, <b>{$name}</b>!" . PHP_EOL . "You wrote: <i>{$text}</i>",
