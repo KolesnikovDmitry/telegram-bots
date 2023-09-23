@@ -101,9 +101,26 @@ if ($text == '/start') {
 } elseif ($text == '/test') {
     $telegram->sendMessage([
         'chat_id' => $chat_id,
-        'text' => "Hello, <b>{$name}</b>!" . PHP_EOL . "Test command...",
+        'text' => $phrases['test_command'],
         'parse_mode' => 'HTML',
+        'reply_markup' => json_encode(['force_reply' => true]),
     ]);
+} elseif (isset($update['message']['reply_to_message']['text'])) {
+    $question = $update['message']['reply_to_message']['text'];
+    $answer = $update['message']['text'];
+    if ($question == $phrases['test_command']) {
+        if (empty($answer)) {
+            $telegram->sendMessage([
+               'chat_id' => $chat_id,
+               'text' => 'Error answer....'
+            ]);
+        } else {
+            $telegram->sendMessage([
+                'chat_id' => $chat_id,
+                'text' => "Вопрос: {$question}" . PHP_EOL . "Ответ: {$answer}"
+            ]);
+        }
+    }
 } elseif ($text == 'photo') {
     $res = $telegram->sendPhoto([
         'chat_id' => $chat_id,

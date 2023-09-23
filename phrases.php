@@ -10,4 +10,5 @@ return [
     'url' => 'Google',
     'cb_btn' => 'Callback button',
     'inline_keyboard1' => 'Show Inline Keyboard ⌨',
+    'test_command' => 'Сколько вам лет?'
 ];
