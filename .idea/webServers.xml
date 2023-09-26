@@ -3,11 +3,10 @@
   <component name="WebServers">
     <option name="servers">
       <webServer id="6e97b3bd-c7ef-4fee-9f23-3375977a62fd" name="telegram-bots" url="http://tel-bots.ru">
-        <fileTransfer host="tel-bots.ru" port="21" rootFolder="/public_html/bots/1">
+        <fileTransfer rootFolder="/public_html/bots/2" host="tel-bots.ru" port="21">
           <advancedOptions>
             <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
           </advancedOptions>
-          <option name="port" value="21" />
         </fileTransfer>
       </webServer>
     </option>
