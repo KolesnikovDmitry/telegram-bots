@@ -1,0 +1,94 @@
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751034
+            [message] => Array
+                (
+                    [message_id] => 18
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1695745041
+                    [text] => Paris
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+stdClass Object
+(
+    [coord] => stdClass Object
+        (
+            [lon] => 2.3488
+            [lat] => 48.8534
+        )
+
+    [weather] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 800
+                    [main] => Clear
+                    [description] => ясно
+                    [icon] => 01d
+                )
+
+        )
+
+    [base] => stations
+    [main] => stdClass Object
+        (
+            [temp] => 25.03
+            [feels_like] => 24.95
+            [temp_min] => 23.32
+            [temp_max] => 26.26
+            [pressure] => 1018
+            [humidity] => 52
+        )
+
+    [visibility] => 10000
+    [wind] => stdClass Object
+        (
+            [speed] => 4.12
+            [deg] => 140
+        )
+
+    [clouds] => stdClass Object
+        (
+            [all] => 0
+        )
+
+    [dt] => 1695744989
+    [sys] => stdClass Object
+        (
+            [type] => 2
+            [id] => 2041230
+            [country] => FR
+            [sunrise] => 1695706928
+            [sunset] => 1695750120
+        )
+
+    [timezone] => 7200
+    [id] => 2988507
+    [name] => Париж
+    [cod] => 200
+)
