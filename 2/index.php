@@ -59,3 +59,20 @@ if ($text == '/start') {
         'text'=> "Укажите корректный формат локации",
     ]);
 }
+
+if (isset($weather)) {
+    if ($weather->code == 200) {
+        $temp = round($weather->main->temp);
+    }
+} elseif ($weather->code == 404) {
+    $telegram->sendMessage([
+        'chat_id' => $chat_id,
+        'text'=> "Укажите корректный формат локации",
+    ]);
+} else {
+    debug($weather);
+    $telegram->sendMessage([
+        'chat_id' => $chat_id,
+        'text'=> 'Возникла ошибка, попробуйте позже'
+    ]);
+}
