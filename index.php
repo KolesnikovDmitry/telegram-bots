@@ -101,9 +101,26 @@ if ($text == '/start') {
 } elseif ($text == '/test') {
     $telegram->sendMessage([
         'chat_id' => $chat_id,
-        'text' => "Hello, <b>{$name}</b>!" . PHP_EOL . "Test command...",
+        'text' => $phrases['test_command'],
         'parse_mode' => 'HTML',
+        'reply_markup' => json_encode(['force_reply' => true]),
     ]);
+} elseif (isset($update['message']['reply_to_message']['text'])) {
+    $question = $update['message']['reply_to_message']['text'];
+    $answer = $update['message']['text'];
+    if ($question == $phrases['test_command']) {
+        if (empty($answer)) {
+            $telegram->sendMessage([
+               'chat_id' => $chat_id,
+               'text' => 'Error answer....'
+            ]);
+        } else {
+            $telegram->sendMessage([
+                'chat_id' => $chat_id,
+                'text' => "Вопрос: {$question}" . PHP_EOL . "Ответ: {$answer}"
+            ]);
+        }
+    }
 } elseif ($text == 'photo') {
     $res = $telegram->sendPhoto([
         'chat_id' => $chat_id,
@@ -135,7 +152,13 @@ if ($text == '/start') {
         'errors.log' => \Telegram\Bot\FileUpload\InputFile::create(__DIR__ . '/errors.log'),
         'test.txt' => \Telegram\Bot\FileUpload\InputFile::create(__DIR__ . '/test.txt'),
     ]);
-}  elseif (!empty($text)) {
+} elseif ($text == $phrases['inline_keyboard1']) {
+    $telegram->sendMessage([
+        'chat_id' => $chat_id,
+        'text' => "Show inline Keyboard",
+        'reply_markup' => new Telegram\Bot\Keyboard\Keyboard($inline_keyboard1),
+    ]);
+}elseif (!empty($text)) {
     $telegram->sendMessage([
         'chat_id' => $chat_id,
         'text' => "Hello, <b>{$name}</b>!" . PHP_EOL . "You wrote: <i>{$text}</i>",
@@ -147,8 +170,19 @@ if ($text == '/start') {
         'text' => "Hello, <b>{$name}</b>!" . PHP_EOL . "<u>I need some text</u>",
         'parse_mode' => 'HTML',
     ]);
+
     $telegram->sendSticker([
         'chat_id' => $chat_id,
         'sticker' => \Telegram\Bot\FileUpload\InputFile::create(__DIR__ . '/img/Sticker.tgs')
+
+//    $telegram->sendSticker([
+//        'chat_id' => $chat_id,
+//        'sticker' => \Telegram\Bot\FileUpload\InputFile::create(__DIR__ . '/img/Sticker.tgs'),
+//
+    ]);
+    $telegram->sendSticker([
+        'chat_id' => $chat_id,
+        'sticker' => $update['message']['sticker']['file_id'],
+
     ]);
 }

@@ -30,4 +30,3 @@ $inline_keyboard1 = [
         ['text'=> $phrases['cb_btn'], 'callback_data' => 'cb_btn_test']],
     ],
 ];
-

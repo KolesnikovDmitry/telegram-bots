@@ -1,0 +1,153 @@
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751042
+            [message] => Array
+                (
+                    [message_id] => 34
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1695828468
+                    [text] => 'latitude' => 54.00016678926494,
+ 'longitude' => 117.99994091369174
+                    [entities] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [offset] => 17
+                                    [length] => 14
+                                    [type] => phone_number
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+stdClass Object
+(
+    [cod] => 404
+    [message] => city not found
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751043
+            [message] => Array
+                (
+                    [message_id] => 36
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1695828828
+                    [location] => Array
+                        (
+                            [latitude] => 52.506712
+                            [longitude] => 117.006284
+                        )
+
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+stdClass Object
+(
+    [coord] => stdClass Object
+        (
+            [lon] => 117.0063
+            [lat] => 52.5067
+        )
+
+    [weather] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 801
+                    [main] => Clouds
+                    [description] => небольшая облачность
+                    [icon] => 02n
+                )
+
+        )
+
+    [base] => stations
+    [main] => stdClass Object
+        (
+            [temp] => 5.89
+            [feels_like] => 4.6
+            [temp_min] => 5.89
+            [temp_max] => 5.89
+            [pressure] => 1015
+            [humidity] => 71
+            [sea_level] => 1015
+            [grnd_level] => 951
+        )
+
+    [visibility] => 10000
+    [wind] => stdClass Object
+        (
+            [speed] => 1.81
+            [deg] => 333
+            [gust] => 1.7
+        )
+
+    [clouds] => stdClass Object
+        (
+            [all] => 21
+        )
+
+    [dt] => 1695828829
+    [sys] => stdClass Object
+        (
+            [country] => RU
+            [sunrise] => 1695852398
+            [sunset] => 1695895144
+        )
+
+    [timezone] => 32400
+    [id] => 2025458
+    [name] => Чернышевск
+    [cod] => 200
+)
