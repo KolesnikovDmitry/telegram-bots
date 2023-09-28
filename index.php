@@ -147,4 +147,8 @@ if ($text == '/start') {
         'text' => "Hello, <b>{$name}</b>!" . PHP_EOL . "<u>I need some text</u>",
         'parse_mode' => 'HTML',
     ]);
+    $telegram->sendSticker([
+        'chat_id' => $chat_id,
+        'sticker' => \Telegram\Bot\FileUpload\InputFile::create(__DIR__ . '/img/Sticker.tgs')
+    ]);
 }
