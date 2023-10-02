@@ -59,3 +59,25 @@ if ($text == '/start') {
         'text'=> "Укажите корректный формат локации",
     ]);
 }
+
+if (isset($weather)) {
+    if ($weather->code == 200) {
+        $temp = round($weather->main->temp);
+        $answer = "<u>Информация о погоде:</u>\nГород: <b>{$weather->name}</b>\nСтрана: <b>{$weather->sys->country}</b>\nПогода: <b>{$weather->$weather[0]->description}</b>\nТемпература:  <b>{$temp}℃</b>";
+        $telegram->sendPhoto([
+            'chat_id' => $chat_id,
+            'caption'=> "Укажите корректный формат локации",
+        ]);
+    }
+} elseif ($weather->code == 404) {
+    $telegram->sendMessage([
+        'chat_id' => $chat_id,
+        'text'=> "Укажите корректный формат локации",
+    ]);
+} else {
+    debug($weather);
+    $telegram->sendMessage([
+        'chat_id' => $chat_id,
+        'text'=> 'Возникла ошибка, попробуйте позже'
+    ]);
+}
