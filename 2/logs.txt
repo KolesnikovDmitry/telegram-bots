@@ -2,10 +2,10 @@ Telegram\Bot\Objects\Update Object
 (
     [items:protected] => Array
         (
-            [update_id] => 679751042
+            [update_id] => 679751051
             [message] => Array
                 (
-                    [message_id] => 34
+                    [message_id] => 65
                     [from] => Array
                         (
                             [id] => 260104315
@@ -25,20 +25,386 @@ Telegram\Bot\Objects\Update Object
                             [type] => private
                         )
 
-                    [date] => 1695828468
-                    [text] => 'latitude' => 54.00016678926494,
- 'longitude' => 117.99994091369174
+                    [date] => 1696268805
+                    [text] => Чернышевск
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+stdClass Object
+(
+    [coord] => stdClass Object
+        (
+            [lon] => 117.0174
+            [lat] => 52.5243
+        )
+
+    [weather] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 802
+                    [main] => Clouds
+                    [description] => переменная облачность
+                    [icon] => 03n
+                )
+
+        )
+
+    [base] => stations
+    [main] => stdClass Object
+        (
+            [temp] => 4.28
+            [feels_like] => 3.17
+            [temp_min] => 4.28
+            [temp_max] => 4.28
+            [pressure] => 1013
+            [humidity] => 86
+            [sea_level] => 1013
+            [grnd_level] => 948
+        )
+
+    [visibility] => 10000
+    [wind] => stdClass Object
+        (
+            [speed] => 1.47
+            [deg] => 318
+            [gust] => 1.38
+        )
+
+    [clouds] => stdClass Object
+        (
+            [all] => 43
+        )
+
+    [dt] => 1696270412
+    [sys] => stdClass Object
+        (
+            [country] => RU
+            [sunrise] => 1696284902
+            [sunset] => 1696326430
+        )
+
+    [timezone] => 32400
+    [id] => 2025458
+    [name] => Чернышевск
+    [cod] => 200
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751051
+            [message] => Array
+                (
+                    [message_id] => 65
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1696268805
+                    [text] => Чернышевск
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+stdClass Object
+(
+    [coord] => stdClass Object
+        (
+            [lon] => 117.0174
+            [lat] => 52.5243
+        )
+
+    [weather] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 802
+                    [main] => Clouds
+                    [description] => переменная облачность
+                    [icon] => 03n
+                )
+
+        )
+
+    [base] => stations
+    [main] => stdClass Object
+        (
+            [temp] => 4.28
+            [feels_like] => 3.17
+            [temp_min] => 4.28
+            [temp_max] => 4.28
+            [pressure] => 1013
+            [humidity] => 86
+            [sea_level] => 1013
+            [grnd_level] => 948
+        )
+
+    [visibility] => 10000
+    [wind] => stdClass Object
+        (
+            [speed] => 1.47
+            [deg] => 318
+            [gust] => 1.38
+        )
+
+    [clouds] => stdClass Object
+        (
+            [all] => 43
+        )
+
+    [dt] => 1696270247
+    [sys] => stdClass Object
+        (
+            [country] => RU
+            [sunrise] => 1696284902
+            [sunset] => 1696326430
+        )
+
+    [timezone] => 32400
+    [id] => 2025458
+    [name] => Чернышевск
+    [cod] => 200
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751052
+            [message] => Array
+                (
+                    [message_id] => 73
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1696268918
+                    [text] => /help
                     [entities] => Array
                         (
                             [0] => Array
                                 (
-                                    [offset] => 17
-                                    [length] => 14
-                                    [type] => phone_number
+                                    [offset] => 0
+                                    [length] => 5
+                                    [type] => bot_command
                                 )
 
                         )
 
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751053
+            [message] => Array
+                (
+                    [message_id] => 75
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1696268941
+                    [text] => /start
+                    [entities] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [offset] => 0
+                                    [length] => 6
+                                    [type] => bot_command
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751054
+            [message] => Array
+                (
+                    [message_id] => 80
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1696269322
+                    [text] => /help
+                    [entities] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [offset] => 0
+                                    [length] => 5
+                                    [type] => bot_command
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751055
+            [message] => Array
+                (
+                    [message_id] => 82
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1696269455
+                    [text] => /help
+                    [entities] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [offset] => 0
+                                    [length] => 5
+                                    [type] => bot_command
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751056
+            [message] => Array
+                (
+                    [message_id] => 84
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1696269482
+                    [text] => help
                 )
 
         )
@@ -55,10 +421,10 @@ Telegram\Bot\Objects\Update Object
 (
     [items:protected] => Array
         (
-            [update_id] => 679751043
+            [update_id] => 679751057
             [message] => Array
                 (
-                    [message_id] => 36
+                    [message_id] => 87
                     [from] => Array
                         (
                             [id] => 260104315
@@ -78,13 +444,196 @@ Telegram\Bot\Objects\Update Object
                             [type] => private
                         )
 
-                    [date] => 1695828828
-                    [location] => Array
+                    [date] => 1696269720
+                    [text] => /help
+                    [entities] => Array
                         (
-                            [latitude] => 52.506712
-                            [longitude] => 117.006284
+                            [0] => Array
+                                (
+                                    [offset] => 0
+                                    [length] => 5
+                                    [type] => bot_command
+                                )
+
                         )
 
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751058
+            [message] => Array
+                (
+                    [message_id] => 89
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1696269790
+                    [text] => /start
+                    [entities] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [offset] => 0
+                                    [length] => 6
+                                    [type] => bot_command
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751059
+            [message] => Array
+                (
+                    [message_id] => 91
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1696269848
+                    [text] => /help
+                    [entities] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [offset] => 0
+                                    [length] => 5
+                                    [type] => bot_command
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751060
+            [message] => Array
+                (
+                    [message_id] => 97
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1696270403
+                    [text] => /help
+                    [entities] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [offset] => 0
+                                    [length] => 5
+                                    [type] => bot_command
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751061
+            [message] => Array
+                (
+                    [message_id] => 99
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1696270463
+                    [text] => Чернышевск
                 )
 
         )
@@ -96,18 +645,18 @@ stdClass Object
 (
     [coord] => stdClass Object
         (
-            [lon] => 117.0063
-            [lat] => 52.5067
+            [lon] => 117.0174
+            [lat] => 52.5243
         )
 
     [weather] => Array
         (
             [0] => stdClass Object
                 (
-                    [id] => 801
+                    [id] => 802
                     [main] => Clouds
-                    [description] => небольшая облачность
-                    [icon] => 02n
+                    [description] => переменная облачность
+                    [icon] => 03n
                 )
 
         )
@@ -115,39 +664,872 @@ stdClass Object
     [base] => stations
     [main] => stdClass Object
         (
-            [temp] => 5.89
-            [feels_like] => 4.6
-            [temp_min] => 5.89
-            [temp_max] => 5.89
-            [pressure] => 1015
-            [humidity] => 71
-            [sea_level] => 1015
-            [grnd_level] => 951
+            [temp] => 4.28
+            [feels_like] => 3.17
+            [temp_min] => 4.28
+            [temp_max] => 4.28
+            [pressure] => 1013
+            [humidity] => 86
+            [sea_level] => 1013
+            [grnd_level] => 948
         )
 
     [visibility] => 10000
     [wind] => stdClass Object
         (
-            [speed] => 1.81
-            [deg] => 333
-            [gust] => 1.7
+            [speed] => 1.47
+            [deg] => 318
+            [gust] => 1.38
         )
 
     [clouds] => stdClass Object
         (
-            [all] => 21
+            [all] => 43
         )
 
-    [dt] => 1695828829
+    [dt] => 1696270247
     [sys] => stdClass Object
         (
             [country] => RU
-            [sunrise] => 1695852398
-            [sunset] => 1695895144
+            [sunrise] => 1696284902
+            [sunset] => 1696326430
         )
 
     [timezone] => 32400
     [id] => 2025458
     [name] => Чернышевск
+    [cod] => 200
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751062
+            [message] => Array
+                (
+                    [message_id] => 115
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1696270646
+                    [text] => /help
+                    [entities] => Array
+                        (
+                            [0] => Array
+                                (
+                                    [offset] => 0
+                                    [length] => 5
+                                    [type] => bot_command
+                                )
+
+                        )
+
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751063
+            [message] => Array
+                (
+                    [message_id] => 117
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1696270655
+                    [text] => Чернышевск
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+stdClass Object
+(
+    [coord] => stdClass Object
+        (
+            [lon] => 117.0174
+            [lat] => 52.5243
+        )
+
+    [weather] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 802
+                    [main] => Clouds
+                    [description] => переменная облачность
+                    [icon] => 03n
+                )
+
+        )
+
+    [base] => stations
+    [main] => stdClass Object
+        (
+            [temp] => 4.28
+            [feels_like] => 3.17
+            [temp_min] => 4.28
+            [temp_max] => 4.28
+            [pressure] => 1013
+            [humidity] => 86
+            [sea_level] => 1013
+            [grnd_level] => 948
+        )
+
+    [visibility] => 10000
+    [wind] => stdClass Object
+        (
+            [speed] => 1.47
+            [deg] => 318
+            [gust] => 1.38
+        )
+
+    [clouds] => stdClass Object
+        (
+            [all] => 43
+        )
+
+    [dt] => 1696270412
+    [sys] => stdClass Object
+        (
+            [country] => RU
+            [sunrise] => 1696284902
+            [sunset] => 1696326430
+        )
+
+    [timezone] => 32400
+    [id] => 2025458
+    [name] => Чернышевск
+    [cod] => 200
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751064
+            [message] => Array
+                (
+                    [message_id] => 120
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1696270676
+                    [text] => Ундугун
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+stdClass Object
+(
+    [cod] => 404
+    [message] => city not found
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751065
+            [message] => Array
+                (
+                    [message_id] => 123
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1696270687
+                    [text] => Арахлей
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+stdClass Object
+(
+    [cod] => 404
+    [message] => city not found
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751066
+            [message] => Array
+                (
+                    [message_id] => 126
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1696270693
+                    [text] => Чита
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+stdClass Object
+(
+    [coord] => stdClass Object
+        (
+            [lon] => 113.55
+            [lat] => 52.0333
+        )
+
+    [weather] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 800
+                    [main] => Clear
+                    [description] => ясно
+                    [icon] => 01n
+                )
+
+        )
+
+    [base] => stations
+    [main] => stdClass Object
+        (
+            [temp] => -0.57
+            [feels_like] => -0.57
+            [temp_min] => -1.06
+            [temp_max] => -0.57
+            [pressure] => 1016
+            [humidity] => 64
+        )
+
+    [visibility] => 10000
+    [wind] => stdClass Object
+        (
+            [speed] => 1
+            [deg] => 0
+        )
+
+    [clouds] => stdClass Object
+        (
+            [all] => 7
+        )
+
+    [dt] => 1696270514
+    [sys] => stdClass Object
+        (
+            [type] => 2
+            [id] => 49608
+            [country] => RU
+            [sunrise] => 1696285719
+            [sunset] => 1696327277
+        )
+
+    [timezone] => 32400
+    [id] => 2025339
+    [name] => Чита
+    [cod] => 200
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751067
+            [message] => Array
+                (
+                    [message_id] => 129
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1696270730
+                    [text] => Алеур
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+stdClass Object
+(
+    [coord] => stdClass Object
+        (
+            [lon] => 117.0562
+            [lat] => 52.5548
+        )
+
+    [weather] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 802
+                    [main] => Clouds
+                    [description] => переменная облачность
+                    [icon] => 03n
+                )
+
+        )
+
+    [base] => stations
+    [main] => stdClass Object
+        (
+            [temp] => 4.19
+            [feels_like] => 3.15
+            [temp_min] => 4.19
+            [temp_max] => 4.19
+            [pressure] => 1013
+            [humidity] => 88
+            [sea_level] => 1013
+            [grnd_level] => 947
+        )
+
+    [visibility] => 10000
+    [wind] => stdClass Object
+        (
+            [speed] => 1.41
+            [deg] => 318
+            [gust] => 1.32
+        )
+
+    [clouds] => stdClass Object
+        (
+            [all] => 41
+        )
+
+    [dt] => 1696270730
+    [sys] => stdClass Object
+        (
+            [country] => RU
+            [sunrise] => 1696284894
+            [sunset] => 1696326419
+        )
+
+    [timezone] => 32400
+    [id] => 2025458
+    [name] => Алеур
+    [cod] => 200
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751068
+            [message] => Array
+                (
+                    [message_id] => 132
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1696270744
+                    [text] => Мильгидун
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+stdClass Object
+(
+    [coord] => stdClass Object
+        (
+            [lon] => 116.9198
+            [lat] => 52.6619
+        )
+
+    [weather] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 802
+                    [main] => Clouds
+                    [description] => переменная облачность
+                    [icon] => 03n
+                )
+
+        )
+
+    [base] => stations
+    [main] => stdClass Object
+        (
+            [temp] => 3.96
+            [feels_like] => 2.63
+            [temp_min] => 3.96
+            [temp_max] => 3.96
+            [pressure] => 1013
+            [humidity] => 91
+            [sea_level] => 1013
+            [grnd_level] => 945
+        )
+
+    [visibility] => 10000
+    [wind] => stdClass Object
+        (
+            [speed] => 1.6
+            [deg] => 325
+            [gust] => 1.49
+        )
+
+    [clouds] => stdClass Object
+        (
+            [all] => 25
+        )
+
+    [dt] => 1696270745
+    [sys] => stdClass Object
+        (
+            [country] => RU
+            [sunrise] => 1696284931
+            [sunset] => 1696326448
+        )
+
+    [timezone] => 32400
+    [id] => 2025458
+    [name] => Мильгидун
+    [cod] => 200
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751069
+            [message] => Array
+                (
+                    [message_id] => 135
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1696270759
+                    [text] => Утан
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+stdClass Object
+(
+    [coord] => stdClass Object
+        (
+            [lon] => 116.9851
+            [lat] => 52.5747
+        )
+
+    [weather] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 802
+                    [main] => Clouds
+                    [description] => переменная облачность
+                    [icon] => 03n
+                )
+
+        )
+
+    [base] => stations
+    [main] => stdClass Object
+        (
+            [temp] => 4.37
+            [feels_like] => 3.2
+            [temp_min] => 4.37
+            [temp_max] => 4.37
+            [pressure] => 1012
+            [humidity] => 90
+            [sea_level] => 1012
+            [grnd_level] => 948
+        )
+
+    [visibility] => 10000
+    [wind] => stdClass Object
+        (
+            [speed] => 1.52
+            [deg] => 327
+            [gust] => 1.45
+        )
+
+    [clouds] => stdClass Object
+        (
+            [all] => 34
+        )
+
+    [dt] => 1696270760
+    [sys] => stdClass Object
+        (
+            [country] => RU
+            [sunrise] => 1696284912
+            [sunset] => 1696326436
+        )
+
+    [timezone] => 32400
+    [id] => 2025458
+    [name] => Утан
+    [cod] => 200
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751070
+            [message] => Array
+                (
+                    [message_id] => 138
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1696270772
+                    [text] => Забайкальский край
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+stdClass Object
+(
+    [coord] => stdClass Object
+        (
+            [lon] => 117
+            [lat] => 52
+        )
+
+    [weather] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 803
+                    [main] => Clouds
+                    [description] => облачно с прояснениями
+                    [icon] => 04n
+                )
+
+        )
+
+    [base] => stations
+    [main] => stdClass Object
+        (
+            [temp] => 4.91
+            [feels_like] => 3.57
+            [temp_min] => 4.91
+            [temp_max] => 4.91
+            [pressure] => 1013
+            [humidity] => 68
+            [sea_level] => 1013
+            [grnd_level] => 941
+        )
+
+    [visibility] => 10000
+    [wind] => stdClass Object
+        (
+            [speed] => 1.72
+            [deg] => 241
+            [gust] => 1.6
+        )
+
+    [clouds] => stdClass Object
+        (
+            [all] => 70
+        )
+
+    [dt] => 1696270773
+    [sys] => stdClass Object
+        (
+            [country] => RU
+            [sunrise] => 1696284889
+            [sunset] => 1696326452
+        )
+
+    [timezone] => 32400
+    [id] => 7779061
+    [name] => Забайкальский Край
+    [cod] => 200
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751071
+            [message] => Array
+                (
+                    [message_id] => 141
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1696270786
+                    [text] => Chernishevsk
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+stdClass Object
+(
+    [cod] => 404
+    [message] => city not found
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 679751072
+            [message] => Array
+                (
+                    [message_id] => 144
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1696270795
+                    [text] => chita
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
+stdClass Object
+(
+    [coord] => stdClass Object
+        (
+            [lon] => 113.55
+            [lat] => 52.0333
+        )
+
+    [weather] => Array
+        (
+            [0] => stdClass Object
+                (
+                    [id] => 800
+                    [main] => Clear
+                    [description] => ясно
+                    [icon] => 01n
+                )
+
+        )
+
+    [base] => stations
+    [main] => stdClass Object
+        (
+            [temp] => -0.57
+            [feels_like] => -0.57
+            [temp_min] => -1.06
+            [temp_max] => -0.57
+            [pressure] => 1016
+            [humidity] => 64
+        )
+
+    [visibility] => 10000
+    [wind] => stdClass Object
+        (
+            [speed] => 1
+            [deg] => 0
+        )
+
+    [clouds] => stdClass Object
+        (
+            [all] => 6
+        )
+
+    [dt] => 1696270777
+    [sys] => stdClass Object
+        (
+            [type] => 2
+            [id] => 49608
+            [country] => RU
+            [sunrise] => 1696285719
+            [sunset] => 1696327277
+        )
+
+    [timezone] => 32400
+    [id] => 2025339
+    [name] => Чита
     [cod] => 200
 )
