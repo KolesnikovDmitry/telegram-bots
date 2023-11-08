@@ -1,0 +1,115 @@
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [query_id] => AAF74IAPAAAAAHvggA-8y4VD
+            [user] => Array
+                (
+                    [id] => 260104315
+                    [first_name] => Дмитрий
+                    [last_name] => Колесников
+                    [username] => SlashDim
+                    [language_code] => ru
+                    [allows_write_to_pm] => 1
+                )
+
+            [cart] => Array
+                (
+                    [5] => Array
+                        (
+                            [id] => 5
+                            [title] => Coca-Cola
+                            [price] => 150
+                            [img] => coke.png
+                            [qty] => 1
+                        )
+
+                    [6] => Array
+                        (
+                            [id] => 6
+                            [title] => Cookie
+                            [price] => 100
+                            [img] => cookie.png
+                            [qty] => 1
+                        )
+
+                )
+
+            [total_sum] => 250
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => query_id
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 202374466
+            [pre_checkout_query] => Array
+                (
+                    [id] => 1117139527032871750
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [currency] => USD
+                    [total_amount] => 250
+                    [invoice_payload] => 3
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => pre_checkout_query
+)
+Telegram\Bot\Objects\Update Object
+(
+    [items:protected] => Array
+        (
+            [update_id] => 202374467
+            [message] => Array
+                (
+                    [message_id] => 539
+                    [from] => Array
+                        (
+                            [id] => 260104315
+                            [is_bot] => 
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [language_code] => ru
+                        )
+
+                    [chat] => Array
+                        (
+                            [id] => 260104315
+                            [first_name] => Дмитрий
+                            [last_name] => Колесников
+                            [username] => SlashDim
+                            [type] => private
+                        )
+
+                    [date] => 1699441827
+                    [successful_payment] => Array
+                        (
+                            [currency] => USD
+                            [total_amount] => 250
+                            [invoice_payload] => 3
+                            [telegram_payment_charge_id] => 6653318840_260104315_7898_7299046863901496892
+                            [provider_payment_charge_id] => ch_3OA9ePCFFYkHvRyM134rHnhU
+                        )
+
+                )
+
+        )
+
+    [escapeWhenCastingToString:protected] => 
+    [updateType:protected] => message
+)
