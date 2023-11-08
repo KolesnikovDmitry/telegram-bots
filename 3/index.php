@@ -23,6 +23,7 @@ $update = $telegram->getWebhookUpdate();
 debug($update);
 
 
+
 //$chat_id = $update['message']['chat']['id'] ?? 0;
 $text = $update['message']['text'] ?? '';
 $name = $update['message']['from']['first_name'] ?? 'Guest';

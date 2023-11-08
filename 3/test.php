@@ -19,4 +19,4 @@ require_once __DIR__ . '/functions.php';
 //
 //];
 //var_dump(check_cart($cart, 1549));
-//var_dump($stmt);
+

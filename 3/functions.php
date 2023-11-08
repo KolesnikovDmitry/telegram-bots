@@ -89,7 +89,7 @@ function add_order(int $chat_id, \Telegram\Bot\Objects\Update $update): bool|int
     $binds = [];
     foreach ($update['cart'] as $item) {
         $sql_part .= "(?,?,?,?,?),";
-        $binds = array_merge($binds, [$order_id, $item['product_id'], $item['title'], $item['price'], $item['qty']]);
+        $binds = array_merge($binds, [$order_id, $item['id'], $item['title'], $item['price'], $item['qty']]);
     }
     $sql_part = rtrim($sql_part, ','); // (?,?,?,?,?),(?,?,?,?,?),(?,?,?,?,?)
     $stmt = $pdo->prepare("INSERT INTO order_products (order_id, product_id, title, price, qty) VALUES $sql_part");
