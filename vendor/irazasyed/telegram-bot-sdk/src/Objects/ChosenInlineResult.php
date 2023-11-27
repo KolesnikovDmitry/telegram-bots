@@ -19,13 +19,11 @@ class ChosenInlineResult extends BaseObject
 {
     /**
      * {@inheritdoc}
-     *
-     * @return array{from: string, location: string}
      */
-    public function relations(): array
+    public function relations()
     {
         return [
-            'from' => User::class,
+            'from'     => User::class,
             'location' => Location::class,
         ];
     }

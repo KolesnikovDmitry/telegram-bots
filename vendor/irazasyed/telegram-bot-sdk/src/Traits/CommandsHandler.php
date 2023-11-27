@@ -4,7 +4,6 @@ namespace Telegram\Bot\Traits;
 
 use Psr\Http\Message\RequestInterface;
 use Telegram\Bot\Commands\CommandBus;
-use Telegram\Bot\Exceptions\TelegramSDKException;
 use Telegram\Bot\Objects\Update;
 
 /**
@@ -14,31 +13,41 @@ trait CommandsHandler
 {
     /**
      * Return Command Bus.
+     *
+     * @return CommandBus
      */
-    public function getCommandBus(): CommandBus
+    protected function getCommandBus(): CommandBus
     {
-        return $this->commandBus;
+        return CommandBus::Instance()->setTelegram($this);
     }
 
-    public function setCommandBus(CommandBus $commandBus): static
+    /**
+     * Get all registered commands.
+     *
+     * @return array
+     */
+    public function getCommands(): array
     {
-        $this->commandBus = $commandBus;
-
-        return $this;
+        return $this->getCommandBus()->getCommands();
     }
 
     /**
      * Processes Inbound Commands.
      *
+     * @param bool $webhook
+     * @param RequestInterface|null $request
      * @return Update|Update[]
      */
-    public function commandsHandler(bool $webhook = false, ?RequestInterface $request = null): Update|array
+    public function commandsHandler(bool $webhook = false, ?RequestInterface $request = null)
     {
         return $webhook ? $this->useWebHook($request) : $this->useGetUpdates();
     }
 
     /**
      * Process the update object for a command from your webhook.
+     *
+     * @param RequestInterface|null $request
+     * @return Update
      */
     protected function useWebHook(?RequestInterface $request = null): Update
     {
@@ -52,8 +61,6 @@ trait CommandsHandler
      * Process the update object for a command using the getUpdates method.
      *
      * @return Update[]
-     *
-     * @throws TelegramSDKException
      */
     protected function useGetUpdates(): array
     {
@@ -66,7 +73,7 @@ trait CommandsHandler
         }
 
         //An update is considered confirmed as soon as getUpdates is called with an offset higher than it's update_id.
-        if ($highestId !== -1) {
+        if ($highestId != -1) {
             $this->markUpdateAsRead($highestId);
         }
 
@@ -75,6 +82,8 @@ trait CommandsHandler
 
     /**
      * Mark updates as read.
+     *
+     * @param $highestId
      *
      * @return Update[]
      */
@@ -89,24 +98,29 @@ trait CommandsHandler
 
     /**
      * Check update object for a command and process.
+     *
+     * @param Update $update
      */
-    public function processCommand(Update $update): void
+    public function processCommand(Update $update)
     {
-        $this->commandBus->handler($update);
+        $this->getCommandBus()->handler($update);
     }
 
     /**
-     * @param  string  $name Command Name
-     * @param  Update  $update Update Object
-     *
      * @deprecated This method will be protected and signature will be changed in SDK v4.
      * Helper to Trigger Commands.
+     *
+     * @param string $name   Command Name
+     * @param Update $update Update Object
+     * @param array|null $entity
+     *
+     * @return mixed
      */
-    public function triggerCommand(string $name, Update $update, array $entity = null): mixed
+    public function triggerCommand(string $name, Update $update, $entity = null)
     {
-        $entity ??= ['offset' => 0, 'length' => strlen($name) + 1, 'type' => 'bot_command'];
+        $entity = $entity ?? ['offset' => 0, 'length' => strlen($name) + 1, 'type' => "bot_command"];
 
-        return $this->commandBus->execute(
+        return $this->getCommandBus()->execute(
             $name,
             $update,
             $entity

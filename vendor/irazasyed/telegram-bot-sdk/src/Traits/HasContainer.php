@@ -2,7 +2,7 @@
 
 namespace Telegram\Bot\Traits;
 
-use Psr\Container\ContainerInterface;
+use Illuminate\Contracts\Container\Container;
 
 /**
  * HasContainer.
@@ -10,31 +10,37 @@ use Psr\Container\ContainerInterface;
 trait HasContainer
 {
     /**
-     * @var null|ContainerInterface IoC Container
+     * @var Container IoC Container
      */
-    protected static ?ContainerInterface $container = null;
+    protected static $container = null;
 
     /**
      * Set the IoC Container.
+     *
+     * @param $container Container instance
      */
-    public static function setContainer(ContainerInterface $container): void
+    public static function setContainer(Container $container)
     {
         self::$container = $container;
     }
 
     /**
      * Get the IoC Container.
+     *
+     * @return Container
      */
-    public function getContainer(): ?ContainerInterface
+    public function getContainer(): Container
     {
         return self::$container;
     }
 
     /**
      * Check if IoC Container has been set.
+     *
+     * @return bool
      */
     public function hasContainer(): bool
     {
-        return self::$container instanceof ContainerInterface;
+        return self::$container !== null;
     }
 }

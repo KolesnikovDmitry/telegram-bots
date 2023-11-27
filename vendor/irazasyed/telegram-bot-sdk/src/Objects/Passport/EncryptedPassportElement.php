@@ -22,17 +22,15 @@ class EncryptedPassportElement extends BaseObject
 {
     /**
      * {@inheritdoc}
-     *
-     * @return array{files: string[], front_side: string, reverse_side: string, selfie: string, translation: string[]}
      */
-    public function relations(): array
+    public function relations()
     {
         return [
-            'files' => [PassportFile::class],
-            'front_side' => PassportFile::class,
+            'files'        => [PassportFile::class],
+            'front_side'   => PassportFile::class,
             'reverse_side' => PassportFile::class,
-            'selfie' => PassportFile::class,
-            'translation' => [PassportFile::class],
+            'selfie'       => PassportFile::class,
+            'translation'  => [PassportFile::class],
         ];
     }
 }

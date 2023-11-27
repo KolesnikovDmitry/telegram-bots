@@ -14,10 +14,8 @@ class Credentials extends BaseObject
 {
     /**
      * {@inheritdoc}
-     *
-     * @return array{secure_data: string}
      */
-    public function relations(): array
+    public function relations()
     {
         return [
             'secure_data' => SecureData::class,

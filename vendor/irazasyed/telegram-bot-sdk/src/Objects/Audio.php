@@ -20,10 +20,8 @@ class Audio extends BaseObject
 {
     /**
      * {@inheritdoc}
-     *
-     * @return array{thumb: string}
      */
-    public function relations(): array
+    public function relations()
     {
         return [
             'thumb' => PhotoSize::class,

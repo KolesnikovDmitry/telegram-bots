@@ -16,10 +16,8 @@ class OrderInfo extends BaseObject
 {
     /**
      * {@inheritdoc}
-     *
-     * @return array{shipping_address: string}
      */
-    public function relations(): array
+    public function relations()
     {
         return [
             'shipping_address' => ShippingAddress::class,

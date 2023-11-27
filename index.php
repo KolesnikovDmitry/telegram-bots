@@ -66,7 +66,7 @@ if ($text == '/start') {
 } elseif (isset($update['callback_query'])) {
     $telegram->answerCallbackQuery([
         'callback_query_id' => $update['callback_query']['id'],
-//        'text' => "Pressed Button {$update['callback_query']['data']}",
+//        'text' => "Pressed Button {$update['callback_query']['data']}",               
 //        'show_alert'=> false
     ]);
     $telegram->editMessageText([

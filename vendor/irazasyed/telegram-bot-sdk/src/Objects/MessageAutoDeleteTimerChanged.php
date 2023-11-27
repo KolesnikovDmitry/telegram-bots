@@ -11,7 +11,7 @@ namespace Telegram\Bot\Objects;
  */
 class MessageAutoDeleteTimerChanged extends BaseObject
 {
-    public function relations(): array
+    public function relations()
     {
         return [];
     }

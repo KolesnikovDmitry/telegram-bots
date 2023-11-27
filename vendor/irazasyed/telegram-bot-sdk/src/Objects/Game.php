@@ -18,15 +18,13 @@ class Game extends BaseObject
 {
     /**
      * {@inheritdoc}
-     *
-     * @return array{photo: string[], text_entities: string[], animation: string}
      */
-    public function relations(): array
+    public function relations()
     {
         return [
-            'photo' => [PhotoSize::class],
+            'photo'         => [PhotoSize::class],
             'text_entities' => [MessageEntity::class],
-            'animation' => Animation::class,
+            'animation'     => Animation::class,
         ];
     }
 }

@@ -18,18 +18,16 @@ class SecureValue extends BaseObject
 {
     /**
      * {@inheritdoc}
-     *
-     * @return array{data: string, front_side: string, reverse_side: string, selfie: string, translation: string[], files: string[]}
      */
-    public function relations(): array
+    public function relations()
     {
         return [
-            'data' => DataCredentials::class,
-            'front_side' => FileCredentials::class,
+            'data'         => DataCredentials::class,
+            'front_side'   => FileCredentials::class,
             'reverse_side' => FileCredentials::class,
-            'selfie' => FileCredentials::class,
-            'translation' => [FileCredentials::class],
-            'files' => [FileCredentials::class],
+            'selfie'       => FileCredentials::class,
+            'translation'  => [FileCredentials::class],
+            'files'        => [FileCredentials::class],
         ];
     }
 }

@@ -22,7 +22,7 @@ class User extends BaseObject
     /**
      * {@inheritdoc}
      */
-    public function relations(): array
+    public function relations()
     {
         return [];
     }

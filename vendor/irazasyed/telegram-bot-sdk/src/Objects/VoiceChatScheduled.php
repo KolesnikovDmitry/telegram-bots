@@ -11,8 +11,8 @@ namespace Telegram\Bot\Objects;
  */
 class VoiceChatScheduled extends BaseObject
 {
-    /** {@inheritDoc} */
-    public function relations(): array
+    /** @inheritDoc */
+    public function relations()
     {
         return [];
     }

@@ -33,16 +33,14 @@ class Chat extends BaseObject
 {
     /**
      * {@inheritdoc}
-     *
-     * @return array{photo: string, pinned_message: string, permissions: string, location: string}
      */
-    public function relations(): array
+    public function relations()
     {
         return [
-            'photo' => InputMedia::class,
+            'photo'          => InputMedia::class,
             'pinned_message' => Message::class,
-            'permissions' => ChatPermissions::class,
-            'location' => ChatLocation::class,
+            'permissions'    => ChatPermissions::class,
+            'location'       => ChatLocation::class,
         ];
     }
 }

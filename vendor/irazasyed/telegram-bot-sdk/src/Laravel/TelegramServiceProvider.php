@@ -13,12 +13,14 @@ use Telegram\Bot\Laravel\Artisan\WebhookCommand;
 /**
  * Class TelegramServiceProvider.
  */
-final class TelegramServiceProvider extends ServiceProvider implements DeferrableProvider
+class TelegramServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
      * Register the service provider.
+     *
+     * @return void
      */
-    public function register(): void
+    public function register()
     {
         $this->configure();
         $this->offerPublishing();
@@ -29,19 +31,19 @@ final class TelegramServiceProvider extends ServiceProvider implements Deferrabl
     /**
      * Setup the configuration.
      */
-    private function configure(): void
+    protected function configure()
     {
-        $this->mergeConfigFrom(__DIR__.'/config/telegram.php', 'telegram');
+        $this->mergeConfigFrom(__DIR__ . '/config/telegram.php', 'telegram');
     }
 
     /**
      * Setup the resource publishing groups.
      */
-    private function offerPublishing(): void
+    protected function offerPublishing()
     {
         if ($this->app instanceof LaravelApplication && $this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/config/telegram.php' => config_path('telegram.php'),
+                __DIR__ . '/config/telegram.php' => config_path('telegram.php'),
             ], 'telegram-config');
         } elseif ($this->app instanceof LumenApplication) {
             $this->app->configure('telegram');
@@ -51,19 +53,23 @@ final class TelegramServiceProvider extends ServiceProvider implements Deferrabl
     /**
      * Register bindings in the container.
      */
-    private function registerBindings(): void
+    protected function registerBindings()
     {
-        $this->app->singleton(BotsManager::class, static fn ($app): BotsManager => (new BotsManager(config('telegram')))->setContainer($app));
+        $this->app->singleton(BotsManager::class, static function ($app) {
+            return (new BotsManager(config('telegram')))->setContainer($app);
+        });
         $this->app->alias(BotsManager::class, 'telegram');
 
-        $this->app->bind(Api::class, static fn ($app) => $app[BotsManager::class]->bot());
+        $this->app->bind(Api::class, static function ($app) {
+            return $app[BotsManager::class]->bot();
+        });
         $this->app->alias(Api::class, 'telegram.bot');
     }
 
     /**
      * Register the Artisan commands.
      */
-    private function registerCommands(): void
+    protected function registerCommands()
     {
         if ($this->app->runningInConsole()) {
             $this->commands([

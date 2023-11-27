@@ -2,7 +2,6 @@
 
 namespace Telegram\Bot\Answers;
 
-use BadMethodCallException;
 use Illuminate\Support\Str;
 use Telegram\Bot\Objects\Update;
 use Telegram\Bot\Traits\Telegram;
@@ -27,38 +26,41 @@ trait Answerable
     /**
      * @var Update Holds an Update object.
      */
-    protected Update $update;
+    protected $update;
 
     /**
      * Magic Method to handle all ReplyWith Methods.
      *
+     * @param $method
+     * @param $arguments
+     *
      * @return mixed|string
      */
-    public function __call(string $method, array $parameters)
+    public function __call($method, $arguments)
     {
         if (! Str::startsWith($method, 'replyWith')) {
-            throw new BadMethodCallException(sprintf('Method [%s] does not exist.', $method));
+            throw new \BadMethodCallException("Method [$method] does not exist.");
         }
-
-        $replyName = Str::studly(substr($method, 9));
-        $methodName = 'send'.$replyName;
+        $reply_name = Str::studly(substr($method, 9));
+        $methodName = 'send' . $reply_name;
 
         if (! method_exists($this->telegram, $methodName)) {
-            throw new BadMethodCallException(sprintf('Method [%s] does not exist.', $method));
+            throw new \BadMethodCallException("Method [$method] does not exist.");
         }
 
-        $chatId = $this->update->getChat()->id ?? null;
-        if (! $chatId) {
-            throw new BadMethodCallException(sprintf('No chat available for reply with [%s].', $method));
+        if (! $this->update->getChat()->has('id')) {
+            throw new \BadMethodCallException("No chat available for reply with [$method].");
         }
 
-        $params = array_merge(['chat_id' => $chatId], $parameters[0]);
+        $params = array_merge(['chat_id' => $this->update->getChat()->id], $arguments[0]);
 
-        return $this->telegram->{$methodName}($params);
+        return call_user_func([$this->telegram, $methodName], $params);
     }
 
     /**
      * Returns Update object.
+     *
+     * @return Update
      */
     public function getUpdate(): Update
     {

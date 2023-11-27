@@ -17,7 +17,7 @@ class File extends BaseObject
     /**
      * {@inheritdoc}
      */
-    public function relations(): array
+    public function relations()
     {
         return [];
     }

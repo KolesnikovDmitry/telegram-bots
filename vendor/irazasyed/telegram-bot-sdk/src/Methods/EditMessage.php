@@ -32,11 +32,13 @@ trait EditMessage
      *
      * @link https://core.telegram.org/bots/api#editmessagetext
      *
-     * @return Message|bool
+     * @param array $params
      *
      * @throws TelegramSDKException
+     *
+     * @return Message|bool
      */
-    public function editMessageText(array $params): Message
+    public function editMessageText(array $params)
     {
         $response = $this->post('editMessageText', $params);
 
@@ -59,11 +61,13 @@ trait EditMessage
      *
      * @link https://core.telegram.org/bots/api#editmessagecaption
      *
-     * @return Message|bool
+     * @param array $params
      *
      * @throws TelegramSDKException
+     *
+     * @return Message|bool
      */
-    public function editMessageCaption(array $params): Message
+    public function editMessageCaption(array $params)
     {
         $response = $this->post('editMessageCaption', $params);
 
@@ -85,11 +89,13 @@ trait EditMessage
      *
      * @link https://core.telegram.org/bots/api#editmessagemedia
      *
-     * @return Message|bool
+     * @param array $params
      *
      * @throws TelegramSDKException
+     *
+     * @return Message|bool
      */
-    public function editMessageMedia(array $params): Message
+    public function editMessageMedia(array $params)
     {
         $response = $this->post('editMessageMedia', $params);
 
@@ -110,11 +116,13 @@ trait EditMessage
      *
      * @link https://core.telegram.org/bots/api#editmessagereplymarkup
      *
-     * @return Message|bool
+     * @param array $params
      *
      * @throws TelegramSDKException
+     *
+     * @return Message|bool
      */
-    public function editMessageReplyMarkup(array $params): Message
+    public function editMessageReplyMarkup(array $params)
     {
         $response = $this->post('editMessageReplyMarkup', $params);
 
@@ -136,9 +144,13 @@ trait EditMessage
      *
      * @link https://core.telegram.org/bots/api#stoppoll
      *
+     * @param array $params
+     *
      * @throws TelegramSDKException
+     *
+     * @return Poll
      */
-    public function stopPoll(array $params): Poll
+    public function stopPoll(array $params)
     {
         $response = $this->post('stopPoll', $params);
 
@@ -164,9 +176,11 @@ trait EditMessage
      *
      * @link https://core.telegram.org/bots/api#deletemessage
      *
-     * @return bool
+     * @param array $params
      *
      * @throws TelegramSDKException
+     *
+     * @return bool
      */
     public function deleteMessage(array $params)
     {
