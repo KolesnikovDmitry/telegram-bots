@@ -23,7 +23,6 @@ $update = $telegram->getWebhookUpdate();
 debug($update);
 
 
-
 //$chat_id = $update['message']['chat']['id'] ?? 0;
 $text = $update['message']['text'] ?? '';
 $name = $update['message']['from']['first_name'] ?? 'Guest';
@@ -94,12 +93,37 @@ if ($text == '/start') {
                 'reply_markup' => new \Telegram\Bot\Keyboard\Keyboard($keyboard1),
             ]);
         }
-    } else {
+    }  else {
         $telegram->sendMessage([
             'chat_id' => $chat_id,
             'text' => $phrases['error'],
             'parse_mode' => 'HTML',
             'reply_markup' => new \Telegram\Bot\Keyboard\Keyboard($keyboard1),
+        ]);
+    }
+} elseif (preg_match('/(?:привет|здравствуйте|можно|вы|как|а|добрый|доброе|фото|фотографии)/iu', $text)) {
+    $telegram->sendMessage([
+        'chat_id' => $chat_id,
+        'text' => "Здравствуйте, с вами свяжется менеджер, оставьте свой номер телефона",
+        'parse_mode' => 'HTML',
+    ]);
+} elseif (isset($update['message']['text'])) {
+    $text = $update['message']['text'];
+
+    // Проверяем, содержит ли текст номер телефона
+    if (preg_match('/\b\d{10,14}\b/', $text, $matches)) {
+        // Извлекаем найденный номер телефона
+        $phone_number = $matches[0];
+        $telegram->sendMessage([
+            'chat_id' => $chat_id,
+            'text' =>  "Спасибо за предоставленный номер телефона ($phone_number). Мы свяжемся с вами в ближайшее время.",
+            'parse_mode' => 'HTML',
+        ]);
+    } else {
+        $telegram->sendMessage([
+            'chat_id' => $chat_id,
+            'text' => "Извините, но текст не содержит корректного номера телефона.",
+            'parse_mode' => 'HTML',
         ]);
     }
 } elseif (!empty($query_id) && !empty($cart) && !empty($total_sum)) {
@@ -121,7 +145,24 @@ if ($text == '/start') {
                 'label' => "{$item['title']} x {$item['qty']}",
                 'amount' => $item['price'] * $item['qty'],
             ];
+
+            // Проверка количества товара перед созданием счета
+            $product_id = $item['id'];
+            $product_quantity = get_product_quantity($product_id);
+
+            if ($product_quantity < $item['qty']) {
+                // Если товара в нужном количестве нет на складе
+                $telegram->sendMessage([
+                    'chat_id' => $chat_id,
+                    'text' => "Очень сожалеем, но данного товара( '{$item['title']}' ) нет в нужном количестве. \n<b><i>Если вы оставите номер телефона, мы обязательно сообщим, как только данная позиция станет снова доступной для покупки</i></b>",
+                    'parse_mode' => 'HTML',
+                ]);
+                $res = ['res' => false, 'answer' => "Извините, товар '{$item['title']}' не доступен в нужном количестве. (Товаров на складе: $product_quantity)"];
+                echo json_encode($res);
+                die;
+            }
         }
+
 
         try {
             $telegram->sendInvoice([
@@ -129,10 +170,14 @@ if ($text == '/start') {
                 'title' => "Заказ № {$order_id}",
                 'description' => "Оплата заказа",
                 'payload' => $order_id,
-                'provider_token' => STRIPE_TOKEN,
-                'currency' => 'USD',
+//                'provider_token' => STRIPE_TOKEN,
+//                'provider_token' => UKASSA_TOKEN,
+                'provider_token' => PAY_MASTER,
+                'currency' => 'RUB',
                 'prices' => $order_products,
                 'photo_url' => PAYMENT_IMG,
+                'need_phone_number'=> true,
+                'need_name' => true,
                 'photo_width' => 640,
                 'photo_height' => 427,
             ]);
@@ -155,20 +200,29 @@ if ($text == '/start') {
 
     echo json_encode($res);
     die;
-} elseif (isset($update['pre_checkout_query'])){
+} elseif (isset($update['pre_checkout_query'])) {
     $telegram->answerPreCheckoutQuery([
         'pre_checkout_query_id' => $chat_id,
         'ok' => true,
     ]);
-} elseif (isset($update['message']['successful_payment'])){
+} elseif (isset($update['message']['successful_payment'])) {
     $order_id = $update['message']['successful_payment']['invoice_payload'];
     $payment_id = $update['message']['successful_payment']['provider_payment_charge_id'];
     $sum = $update['message']['successful_payment']['total_amount'] / 100;
     $currency = $update['message']['successful_payment']['currency'];
     toggle_order_status($order_id, $payment_id);
+
+
+    $cart = $update['cart'] ?? [];
+
+    foreach ($cart as $item) {
+         decrease_product_quantity($item['id'], $item['qty']);
+    }
+
+
     $telegram->sendMessage([
         'chat_id' => $chat_id,
-        'text' => "Оплачен заказ #{$order_id} на сумму {$sum} {$currency}" ,
+        'text' => "Оплачен заказ #{$order_id} на сумму {$sum} {$currency}\n " . $phrases['payment_success'],
         'parse_mode' => 'HTML',
     ]);
 

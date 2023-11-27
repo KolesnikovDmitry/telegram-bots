@@ -4,10 +4,10 @@ body {
 }
 
 .product-card {
-    margin-bottom: 20px;
     position: relative;
+    border: 1px solid #ffc107;
+    border-radius: 10px;
 }
-
 span.product-cart-qty {
     position: absolute;
     right: 0;
@@ -15,12 +15,13 @@ span.product-cart-qty {
 }
 
 .product-title {
-    font-size: 14px;
+    font-size: small;
     margin: 0;
 }
 
 .product-price {
     font-weight: 600;
+    margin: 5px 0 0 0;
 }
 
 nav.fixed-top {
@@ -59,7 +60,7 @@ img.cart-img {
 }
 
 .card-img-top {
-    max-width: 80px;
+    border-radius: 10px 10px 0 0;
 }
 
 .add2cart {
@@ -83,3 +84,7 @@ img.cart-img {
     animation: scale 0.3s ease-in-out;
 }
 
+.qty {
+    margin-top: 0;
+    font-size: small;
+}

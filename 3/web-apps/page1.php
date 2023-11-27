@@ -21,11 +21,6 @@
 </head>
 <body>
 <div class="container">
-    <!--<button id="toggle-main-btn">Main Button</button>
-    <button id="close-app">Close</button>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium architecto doloribus dolorum ea inventore
-        itaque modi reprehenderit, sequi suscipit. Assumenda consequuntur ducimus eum pariatur, placeat quae velit
-        voluptatem. Autem, ipsum!</p>-->
     <h3>Подпишись на рассылку</h3>
     <p>Будь в курсе всех распродаж, акций и новостей.<br>
     Мы будем присылать тебе только самое важное и интересное</p>

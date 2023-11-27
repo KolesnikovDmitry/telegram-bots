@@ -106,3 +106,42 @@ function toggle_order_status(int $order_id, string $payment_id): bool
     $stmt = $pdo->prepare("UPDATE orders SET status = 1, payment_id = ? WHERE id = ?");
     return $stmt->execute([$payment_id, $order_id]);
 }
+
+function get_product_quantity(int $product_id): int
+{
+    global $pdo;
+
+    $sql = "SELECT quantity FROM products WHERE id = ?";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([$product_id]);
+
+    if ($stmt->rowCount() > 0) {
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return (int)$row['quantity'];
+    }
+
+    // Если товар не найден, можно вернуть, например, -1 или другое значение, которое указывает на отсутствие товара.
+    return -1;
+}
+
+function decrease_product_quantity(int $product_id, int $quantity): bool
+{
+    global $pdo;
+
+    try {
+        $sql = "UPDATE products SET quantity = quantity - :quantity WHERE id = :product_id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':quantity', $quantity, PDO::PARAM_INT);
+        $stmt->bindParam(':product_id', $product_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Добавим логирование
+        error_log("Уменьшено количество товара $product_id на $quantity"); // Логи не работают
+
+        return true;
+    } catch (PDOException $e) {
+        // Обработка ошибок, например, логирование
+        error_log("Ошибка при уменьшении количества товара: " . $e->getMessage()); // Логи не работают
+        return false;
+    }
+}

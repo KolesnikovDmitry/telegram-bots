@@ -20,7 +20,7 @@ $keyboard2 = [
             ['text' => $phrases['btn_unsubscribe'],]
         ]
     ],
-    'resize_keyboard' => true,
+    'resize_keyboard' => false,
 //    'input_field_placeholder' => $phrases['select_btn'],
 ];
 

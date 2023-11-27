@@ -54,7 +54,7 @@ if (isset($_GET['page'])) {
 
                 <div class="tab-content mt-3" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="nav-store" role="tabpanel">
-                        <h2 class="animate__animated animate__fadeInDown text-center">Продуктовый магазин</h2>
+                        <h2 class="animate__animated animate__fadeInDown text-center">Сувениры</h2>
                         <div class="row animate__animated animate__fadeInUp" id="products-list">
                             <?php foreach ($products as $product) : ?>
                                 <?php require __DIR__ . '/product_tpl.php'; ?>
@@ -120,7 +120,6 @@ if (isset($_GET['page'])) {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="main.js?v=1.0"></script>
-    <script src="js/main.js"></script>
 </body>
 
 </html>
