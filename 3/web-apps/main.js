@@ -2,7 +2,9 @@ const tg = window.Telegram.WebApp;
 tg.ready();
 tg.expand();
 const productsContainer = document.getElementById('products-list');
+const productsFrameContainer = document.getElementById('products-frame-list');
 const loaderBtn = document.getElementById('loader-btn');
+const loaderBtnFrame = document.getElementById('loader-btn-frame');
 const loaderImg = document.getElementById('loader-img');
 const cartTable = document.querySelector('table');
 let page = 1;
@@ -13,27 +15,55 @@ async function getProducts() {
 }
 
 async function showProducts() {
-    const products = await getProducts();
-    if (products) {
-        productsContainer.insertAdjacentHTML('beforeend', products);
-    } else {
-        loaderBtn.classList.add('d-none');
-        productsContainer.insertAdjacentHTML('beforeend', "<p class='scale'>Извините, товаров больше нет.</p>");
-        productsContainer.classList.add('no-products-message');
-    }
+        const products = await getProducts();
+        if (products) {
+            productsContainer.insertAdjacentHTML('beforeend', products);
+        } else {
+            loaderBtn.classList.add('d-none');
+            productsContainer.insertAdjacentHTML('beforeend', "<p class='scale'>Извините, товаров больше нет.</p>");
+            productsContainer.classList.add('no-products-message');
+        }
 }
 
-loaderBtn.addEventListener('click', () => {
+async function showProductsFrame() {
+        const products_frame = await getProducts();
+        if (products_frame) {
+            productsFrameContainer.insertAdjacentHTML('beforeend', products_frame);
+        } else {
+            loaderBtnFrame.classList.add('d-none');
+            productsFrameContainer.insertAdjacentHTML('beforeend', "<p class='scale'>Извините, товаров больше нет.</p>");
+            productsFrameContainer.classList.add('no-products-message');
+        }
+}
+
+// Общий обработчик для всех кнопок
+document.addEventListener('click', (e) => {
+    const loaderBtn = e.target.closest('#loader-btn');
+    const loaderBtnFrame = e.target.closest('#loader-btn-frame');
+
+    if (loaderBtn) {
+        handleLoaderButtonClick('store');
+    } else if (loaderBtnFrame) {
+        handleLoaderButtonClick('frame');
+    }
+});
+
+function handleLoaderButtonClick(category) {
     loaderImg.classList.add('d-inline-block');
     setTimeout(() => {
         page++;
-        showProducts()
-            .then(() => {
-                productQty(cart);
-            });
+
+        if (category === 'store') {
+            showProducts().then(() => productQty(cart));
+        } else if (category === 'frame') {
+            showProductsFrame().then(() => productQty(cart));
+        }
+
         loaderImg.classList.remove('d-inline-block');
     }, 1000);
-});
+}
+
+
 
 function getCart(setCart = false) {
     if (setCart) {
@@ -92,13 +122,14 @@ function cartContent(items) {
         cartEmpty.classList.add('d-none');
         cartTableBody.innerHTML = '';
         Object.keys(items).forEach(key => {
+            let formattedTitle = items[key]['title'].replace('/("\s*)([^"]+)(\s*")/', "<br>$1$2\n$3n$4");
             cartTableBody.innerHTML += `
 <tr class="align-middle animate__animated">
     <th scope="row">${key}</th>
     <td><img src="img/${items[key]['img']}" class="cart-img" alt=""></td>
-    <td>${items[key]['title']}</td>
+     <td>${formattedTitle}</td>
     <td>${items[key]['qty']}</td>
-    <td>${items[key]['price'] / 100}</td>
+    <td>${items[key]['price'] / 100}р.</td>
     <td data-id="${key}"><button class="btn del-item">🗑</button></td>
 </tr>
 `;
@@ -118,17 +149,25 @@ productQty(cart);
 cartContent(cart);
 
 // Add listener for add product
-productsContainer.addEventListener('click', (e) => {
+// Обработчик для контейнера с продуктами
+productsContainer.addEventListener('click', handleAddToCart);
+
+// Обработчик для контейнера с фоторамками
+productsFrameContainer.addEventListener('click', handleAddToCart);
+
+function handleAddToCart(e) {
+    console.log('Add to cart button clicked');
     if (e.target.classList.contains('add2cart')) {
         e.preventDefault();
-        e.target.classList.add('animate__rubberBand');
-        // console.log(JSON.parse(e.target.dataset.product));
+        e.target.classList.add('animate__flipInX');
         add2Cart(JSON.parse(e.target.dataset.product));
         setTimeout(() => {
-            e.target.classList.remove('animate__rubberBand');
+            e.target.classList.remove('animate__flipInX');
         }, 1000);
     }
-});
+}
+
+
 
 // Add listener for delete product
 cartTable.addEventListener('click', (e) => {
@@ -176,3 +215,5 @@ tg.MainButton.onClick(() => {
             }
         });
 });
+
+

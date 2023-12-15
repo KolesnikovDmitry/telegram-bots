@@ -48,6 +48,23 @@ function get_products(int $start, int $per_page): array
     return $stmt->fetchAll();
 }
 
+function get_products_frame(int $start, int $per_page): array
+{
+    global $pdo;
+    $stmt = $pdo->prepare("SELECT * FROM products_frame LIMIT $start, $per_page");
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+//function get_items(int $start, int $per_page, string $category): array
+//{
+//    global $pdo;
+//    $stmt = $pdo->prepare("SELECT * FROM $category LIMIT $start, $per_page");
+//    $stmt->execute();
+//    return $stmt->fetchAll();
+//}
+
+
 function get_start(int $page, int $per_page): int
 {
     return ($page - 1) * $per_page;

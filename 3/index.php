@@ -1,7 +1,7 @@
 <?php
 
 error_reporting(-1);
-ini_set('display_errors', 0);
+ini_set('display_errors', 1);
 ini_set('log_errors', 'on');
 ini_set('error_log', __DIR__ . '/errors.log');
 
@@ -163,6 +163,10 @@ if ($text == '/start') {
             }
         }
 
+        $cart = $update['cart'] ?? [];
+        foreach ($cart as $item) {
+            decrease_product_quantity($item['id'], $item['qty']);
+        }
 
         try {
             $telegram->sendInvoice([
@@ -211,15 +215,6 @@ if ($text == '/start') {
     $sum = $update['message']['successful_payment']['total_amount'] / 100;
     $currency = $update['message']['successful_payment']['currency'];
     toggle_order_status($order_id, $payment_id);
-
-
-    $cart = $update['cart'] ?? [];
-
-    foreach ($cart as $item) {
-         decrease_product_quantity($item['id'], $item['qty']);
-    }
-
-
     $telegram->sendMessage([
         'chat_id' => $chat_id,
         'text' => "Оплачен заказ #{$order_id} на сумму {$sum} {$currency}\n " . $phrases['payment_success'],
