@@ -39,30 +39,17 @@ function delete_subscriber(int $chat_id): bool
     $stmt = $pdo->prepare("DELETE FROM subscribers WHERE chat_id = ?");
     return $stmt->execute([$chat_id]);
 }
-
-function get_products(int $start, int $per_page): array
+function get_products($table, $start, $per_page): array
 {
     global $pdo;
-    $stmt = $pdo->prepare("SELECT * FROM products LIMIT $start, $per_page");
+
+    $stmt = $pdo->prepare("SELECT * FROM $table LIMIT :start, :per_page");
+    $stmt->bindParam(':start', $start, PDO::PARAM_INT);
+    $stmt->bindParam(':per_page', $per_page, PDO::PARAM_INT);
     $stmt->execute();
+
     return $stmt->fetchAll();
 }
-
-function get_products_frame(int $start, int $per_page): array
-{
-    global $pdo;
-    $stmt = $pdo->prepare("SELECT * FROM products_frame LIMIT $start, $per_page");
-    $stmt->execute();
-    return $stmt->fetchAll();
-}
-
-//function get_items(int $start, int $per_page, string $category): array
-//{
-//    global $pdo;
-//    $stmt = $pdo->prepare("SELECT * FROM $category LIMIT $start, $per_page");
-//    $stmt->execute();
-//    return $stmt->fetchAll();
-//}
 
 
 function get_start(int $page, int $per_page): int

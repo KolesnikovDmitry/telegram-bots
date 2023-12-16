@@ -2,7 +2,7 @@
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../functions.php';
 
-$category = isset($_GET['category']) ? $_GET['category'] : 'products';
+
 
 $per_page = 6;
 if (isset($_GET['page'])) {
@@ -11,8 +11,8 @@ if (isset($_GET['page'])) {
         $page = 1;
     }
     $start = get_start($page, $per_page);
-    $products = get_products($start, $per_page);
-    $products_frame = get_products_frame($start, $per_page);
+    $products = get_products('products', $start, $per_page);
+    $products_frame = get_products('products_frame', $start, $per_page);
     ob_start();
     foreach ($products as $product) {
         require __DIR__ . '/product_tpl.php';
@@ -26,8 +26,8 @@ if (isset($_GET['page'])) {
 } else {
     $page = 1;
     $start = get_start($page, $per_page);
-    $products = get_products($start, $per_page);
-    $products_frame = get_products_frame($start, $per_page);
+    $products = get_products('products', $start, $per_page);
+    $products_frame = get_products('products_frame', $start, $per_page);
 }
 
 ?>
@@ -141,7 +141,7 @@ if (isset($_GET['page'])) {
         </div>
 
     </div>
-    <script src="main.js?v=1.04"></script>
+    <script src="main.js?v=1.06"></script>
 </body>
 
 </html>
