@@ -6,6 +6,7 @@ const productsFrameContainer = document.getElementById('products-frame-list');
 const loaderBtn = document.getElementById('loader-btn');
 const loaderBtnFrame = document.getElementById('loader-btn-frame');
 const loaderImg = document.getElementById('loader-img');
+const loaderImgFrame = document.getElementById('loader-img-frame');
 const cartTable = document.querySelector('table');
 let page = 1;
 
@@ -15,25 +16,25 @@ async function getProducts() {
 }
 
 async function showProducts() {
-        const products = await getProducts();
-        if (products) {
-            productsContainer.insertAdjacentHTML('beforeend', products);
-        } else {
-            loaderBtn.classList.add('d-none');
-            productsContainer.insertAdjacentHTML('beforeend', "<p class='scale'>Извините, товаров больше нет.</p>");
-            productsContainer.classList.add('no-products-message');
-        }
+    const products = await getProducts();
+    if (products) {
+        productsContainer.insertAdjacentHTML('beforeend', products);
+    } else {
+        loaderBtn.classList.add('d-none');
+        productsContainer.insertAdjacentHTML('beforeend', "<p class='scale'>Извините, товаров больше нет.</p>");
+        productsContainer.classList.add('no-products-message');
+    }
 }
 
 async function showProductsFrame() {
-        const products_frame = await getProducts();
-        if (products_frame) {
-            productsFrameContainer.insertAdjacentHTML('beforeend', products_frame);
-        } else {
-            loaderBtnFrame.classList.add('d-none');
-            productsFrameContainer.insertAdjacentHTML('beforeend', "<p class='scale'>Извините, товаров больше нет.</p>");
-            productsFrameContainer.classList.add('no-products-message');
-        }
+    const products_frame = await getProducts();
+    if (products_frame) {
+        productsFrameContainer.insertAdjacentHTML('beforeend', products_frame);
+    } else {
+        loaderBtnFrame.classList.add('d-none');
+        productsFrameContainer.insertAdjacentHTML('beforeend', "<p class='scale'>Извините, товаров больше нет.</p>");
+        productsFrameContainer.classList.add('no-products-message');
+    }
 }
 
 // Общий обработчик для всех кнопок
@@ -50,6 +51,7 @@ document.addEventListener('click', (e) => {
 
 function handleLoaderButtonClick(category) {
     loaderImg.classList.add('d-inline-block');
+    loaderImgFrame.classList.add('d-inline-block');
     setTimeout(() => {
         page++;
 
@@ -60,6 +62,7 @@ function handleLoaderButtonClick(category) {
         }
 
         loaderImg.classList.remove('d-inline-block');
+        loaderImgFrame.classList.remove('d-inline-block');
     }, 1000);
 }
 
@@ -215,5 +218,4 @@ tg.MainButton.onClick(() => {
             }
         });
 });
-
 
