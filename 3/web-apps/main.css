@@ -80,6 +80,9 @@ img.cart-img {
 .loader-img {
     display: none;
 }
+.loader-img-frame {
+    display: none;
+}
 
 .modal-open {
     overflow: auto !important;

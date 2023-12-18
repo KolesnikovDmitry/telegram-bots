@@ -39,6 +39,7 @@ async function showProductsFrame() {
 
 // Общий обработчик для всех кнопок
 document.addEventListener('click', (e) => {
+    console.log('Clicked "Показать больше" button')
     const loaderBtn = e.target.closest('#loader-btn');
     const loaderBtnFrame = e.target.closest('#loader-btn-frame');
 

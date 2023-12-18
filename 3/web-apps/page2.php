@@ -69,25 +69,25 @@ if (isset($_GET['page'])) {
             <div class="tab-content mt-3" id="nav-tabContent">
                 <div class="tab-pane fade show active" id="nav-store" role="tabpanel">
                     <h2 class="animate__animated animate__fadeInDown text-center">Сувениры</h2>
-                    <div class="row animate__animated animate__fadeInUp" id="products-list">
+                    <div class="row animate__animated animate__fadeInUp" id="product-list">
                         <?php foreach ($products as $product) : ?>
                             <?php require __DIR__ . '/product_tpl.php'; ?>
                         <?php endforeach; ?>
                     </div>
                     <div class="text-center animate__animated animate__fadeInUp" id="loader">
-                        <button class="btn btn-warning loader-btn" data-category="store">Показать больше ...</button>
-                        <img src="img/loader.svg" alt=""  class="loader-img">
+                        <button class="btn btn-warning" id="loader-btn" data-category="store">Показать больше ...</button>
+                        <img src="img/loader.svg" alt="" id="loader-img" class="loader-img">
                     </div>
                 </div>
                 <div class="tab-pane fade " id="nav-store-frame" role="tabpanel">
                     <h2 class="animate__animated animate__fadeInDown text-center">Фоторамки</h2>
-                    <div class="row animate__animated animate__fadeInUp" id="products-frame-list">
+                    <div class="row animate__animated animate__fadeInUp" id="product-frame-list">
                         <?php foreach ($products_frame as $product_frame) : ?>
                             <?php require __DIR__ . '/product_frame_tpl.php'; ?>
                         <?php endforeach; ?>
                     </div>
                     <div class="text-center animate__animated animate__fadeInUp" id="loader-frame">
-                        <button class="btn btn-warning loader-btn-frame" data-category="frame">Показать больше ...</button>
+                        <button class="btn btn-warning" id="loader-btn-frame" data-category="frame">Показать больше ...</button>
                         <img src="img/loader.svg" alt="" id="loader-img-frame" class="loader-img-frame">
                     </div>
                 </div>
@@ -141,7 +141,7 @@ if (isset($_GET['page'])) {
     </div>
 
 </div>
-<script src="main.js?v=1.31"></script>
+<script src="main.js?v=1.15"></script>
 </body>
 
 </html>
