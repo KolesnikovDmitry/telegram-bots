@@ -128,6 +128,26 @@ function get_product_quantity(int $product_id): int
     // Если товар не найден, можно вернуть, например, -1 или другое значение, которое указывает на отсутствие товара.
     return -1;
 }
+function get_product_title($product_id) {
+    global $pdo;
+
+    try {
+        $sql = "SELECT title FROM products WHERE id = :product_id";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindParam(':product_id', $product_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($result) {
+            return $result['title'];
+        } else {
+            return 'Неизвестный продукт';
+        }
+    } catch (PDOException $e) {
+        return 'Неизвестный продукт';
+    }
+}
 
 function decrease_product_quantity(int $product_id, int $quantity): bool
 {
@@ -141,12 +161,14 @@ function decrease_product_quantity(int $product_id, int $quantity): bool
         $stmt->execute();
 
         // Добавим логирование
-        error_log("Уменьшено количество товара $product_id на $quantity"); // Логи не работают
+//        error_log("Уменьшено количество товара $product_id на $quantity");
+        $product_title = get_product_title($product_id);
+        error_log("Уменьшено количество товара '{$product_title}' (ID: {$product_id}) на {$quantity} шт.");
 
         return true;
     } catch (PDOException $e) {
         // Обработка ошибок, например, логирование
-        error_log("Ошибка при уменьшении количества товара: " . $e->getMessage()); // Логи не работают
+        error_log("Ошибка при уменьшении количества товара: " . $e->getMessage());
         return false;
     }
 }
