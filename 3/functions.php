@@ -161,14 +161,17 @@ function decrease_product_quantity(int $product_id, int $quantity): bool
         $stmt->execute();
 
         // Добавим логирование
-//        error_log("Уменьшено количество товара $product_id на $quantity");
         $product_title = get_product_title($product_id);
-        error_log("Уменьшено количество товара '{$product_title}' (ID: {$product_id}) на {$quantity} шт.");
+        $log_message = "Уменьшено количество товара '{$product_title}' (ID: {$product_id}) на {$quantity} шт.";
+
+        file_put_contents('заказы.txt', $log_message . PHP_EOL, FILE_APPEND);
 
         return true;
     } catch (PDOException $e) {
         // Обработка ошибок, например, логирование
-        error_log("Ошибка при уменьшении количества товара: " . $e->getMessage());
+        $error_message = "Ошибка при уменьшении количества товара: " . $e->getMessage();
+        file_put_contents('заказы.txt', $error_message . PHP_EOL, FILE_APPEND);
+
         return false;
     }
 }
