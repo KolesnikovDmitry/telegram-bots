@@ -75,8 +75,8 @@ if (isset($_GET['page'])) {
                         <?php endforeach; ?>
                     </div>
                     <div class="text-center animate__animated animate__fadeInUp" id="loader">
-                        <button class="btn btn-warning" id="loader-btn" data-category="store">Показать больше ...</button>
-                        <img src="img/loader.svg" alt="" id="loader-img" class="loader-img">
+                        <button class="btn btn-warning loader-btn" data-category="store">Показать больше ...</button>
+                        <img src="img/loader.svg" alt=""  class="loader-img">
                     </div>
                 </div>
                 <div class="tab-pane fade " id="nav-store-frame" role="tabpanel">
@@ -87,8 +87,8 @@ if (isset($_GET['page'])) {
                         <?php endforeach; ?>
                     </div>
                     <div class="text-center animate__animated animate__fadeInUp" id="loader-frame">
-                        <button class="btn btn-warning " id="loader-btn-frame" data-category="frame">Показать больше ...</button>
-                        <img src="img/loader.svg" alt="" id="loader-img-frame" class="loader-img">
+                        <button class="btn btn-warning loader-btn-frame" data-category="frame">Показать больше ...</button>
+                        <img src="img/loader.svg" alt="" id="loader-img-frame" class="loader-img-frame">
                     </div>
                 </div>
                 <div class="tab-pane fade show" id="nav-cart" role="tabpanel">
@@ -141,7 +141,7 @@ if (isset($_GET['page'])) {
     </div>
 
 </div>
-<script src="main.js?v=1.09"></script>
+<script src="main.js?v=1.31"></script>
 </body>
 
 </html>

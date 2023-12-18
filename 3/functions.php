@@ -39,6 +39,7 @@ function delete_subscriber(int $chat_id): bool
     $stmt = $pdo->prepare("DELETE FROM subscribers WHERE chat_id = ?");
     return $stmt->execute([$chat_id]);
 }
+
 function get_products($table, $start, $per_page): array
 {
     global $pdo;
@@ -66,27 +67,17 @@ function check_cart(array $cart, int $total_sum): bool
     $stmt = $pdo->prepare("SELECT id, price FROM products WHERE id IN ($in_placeholders)");
     $stmt->execute($ids);
     $products = $stmt->fetchAll();
-    $products_frame = $stmt->fetchAll();
 
     if (count($products) != count($ids)) {
         return false;
     }
 
-    if (count($products_frame) != count($ids)) {
-        return false;
-    }
     $sum = 0;
     foreach ($products as $product) {
         if (!isset($cart[$product['id']]) || ($cart[$product['id']]['price'] != $product['price'])) {
             return false;
         }
         $sum += $product['price'] * $cart[$product['id']]['qty'];
-    }
-    foreach ($products_frame as $product_frame) {
-        if (!isset($cart[$product_frame['id']]) || ($cart[$product_frame['id']]['price'] != $product_frame['price'])) {
-            return false;
-        }
-        $sum += $product_frame['price'] * $cart[$product_frame['id']]['qty'];
     }
 
     return $sum == $total_sum;

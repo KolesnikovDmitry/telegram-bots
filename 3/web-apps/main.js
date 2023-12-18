@@ -1,8 +1,8 @@
 const tg = window.Telegram.WebApp;
 tg.ready();
 tg.expand();
-const productsContainer = document.getElementById('products-list');
-const productsFrameContainer = document.getElementById('products-frame-list');
+const productsContainer = document.getElementById('product-list');
+const productsFrameContainer = document.getElementById('product-frame-list');
 const loaderBtn = document.getElementById('loader-btn');
 const loaderBtnFrame = document.getElementById('loader-btn-frame');
 const loaderImg = document.getElementById('loader-img');
@@ -218,4 +218,3 @@ tg.MainButton.onClick(() => {
             }
         });
 });
-
