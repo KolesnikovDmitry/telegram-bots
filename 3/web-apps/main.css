@@ -7,6 +7,14 @@ body {
     color: var(--tg-theme-text-color);
 }
 
+.nth-unborder tbody tr th:nth-of-type(1) {
+    border-bottom: solid white !important;
+}
+
+.unborder tbody tr:not(:last-child) th {
+    border-bottom: solid white !important;
+}
+
 .product-card {
     position: relative;
     border: 1px solid #ffc107;
@@ -80,6 +88,7 @@ img.cart-img {
 .loader-img {
     display: none;
 }
+
 .loader-img-frame {
     display: none;
 }

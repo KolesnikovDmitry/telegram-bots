@@ -16,6 +16,7 @@ require_once __DIR__ . '/functions.php';
  * @var array $inline_keyboard1
  * @var array $keyboard1
  * @var array $keyboard2
+ * @var array $price
  */
 
 $telegram = new \Telegram\Bot\Api(TOKEN);
@@ -57,6 +58,12 @@ if ($text == '/start') {
         'parse_mode' => 'HTML',
         'reply_markup' => new \Telegram\Bot\Keyboard\Keyboard($inline_keyboard1),
     ]);
+    $telegram->sendMessage([
+        'chat_id' => $chat_id,
+        'text' => $phrases['price'],
+        'parse_mode' => 'HTML',
+        'reply_markup' => new \Telegram\Bot\Keyboard\Keyboard($price),
+    ]);
 } elseif ($text == $phrases['btn_unsubscribe']) {
     if (delete_subscriber($chat_id)) {
         $telegram->sendMessage([
@@ -93,7 +100,7 @@ if ($text == '/start') {
                 'reply_markup' => new \Telegram\Bot\Keyboard\Keyboard($keyboard1),
             ]);
         }
-    }  else {
+    } else {
         $telegram->sendMessage([
             'chat_id' => $chat_id,
             'text' => $phrases['error'],
@@ -174,13 +181,13 @@ if ($text == '/start') {
                 'title' => "Заказ № {$order_id}",
                 'description' => "Оплата заказа",
                 'payload' => $order_id,
-//                'provider_token' => STRIPE_TOKEN,
-//                'provider_token' => UKASSA_TOKEN,
+                //                'provider_token' => STRIPE_TOKEN,
+                //                'provider_token' => UKASSA_TOKEN,
                 'provider_token' => PAY_MASTER,
                 'currency' => 'RUB',
                 'prices' => $order_products,
                 'photo_url' => PAYMENT_IMG,
-                'need_phone_number'=> true,
+                'need_phone_number' => true,
                 'need_name' => true,
                 'photo_width' => 640,
                 'photo_height' => 427,
@@ -220,7 +227,6 @@ if ($text == '/start') {
         'text' => "Оплачен заказ #{$order_id} на сумму {$sum} {$currency}\n " . $phrases['payment_success'],
         'parse_mode' => 'HTML',
     ]);
-
 } else {
     $telegram->sendMessage([
         'chat_id' => $chat_id,

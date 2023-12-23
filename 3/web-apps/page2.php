@@ -1,24 +1,30 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 require_once __DIR__ . '/../config.php';
 require_once __DIR__ . '/../functions.php';
 
-
-
 $per_page = 6;
+$page = isset($_GET['page']) ? intval($_GET['page']) : 1;
+$category = $_GET['category'] ?? 'store';
+
 if (isset($_GET['page'])) {
     $page = (int)$_GET['page'];
     if ($page < 1) {
         $page = 1;
     }
-    $start = get_start($page, $per_page);
-    $products = get_products('products', $start, $per_page);
-    $products_frame = get_products('products_frame', $start, $per_page);
     ob_start();
-    foreach ($products as $product) {
-        require __DIR__ . '/product_tpl.php';
-    }
-    foreach ($products_frame as $product_frame) {
-        require __DIR__ . '/product_frame_tpl.php';
+    $start = get_start($page, $per_page);
+    if ($_GET['category'] == 'store') {
+        $products = get_products('products', $start, $per_page);
+        foreach ($products as $product) {
+            require __DIR__ . '/product_tpl.php';
+        }
+    } elseif ($_GET['category'] == 'frame') {
+        $products_frame = get_products('products_frame', $start, $per_page);
+        foreach ($products_frame as $product_frame) {
+            require __DIR__ . '/product_frame_tpl.php';
+        }
     }
     $html = ob_get_clean();
     echo $html;
@@ -29,14 +35,22 @@ if (isset($_GET['page'])) {
     $products = get_products('products', $start, $per_page);
     $products_frame = get_products('products_frame', $start, $per_page);
 }
-
 ?>
 <!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,shrink-to-fit=no,viewport-fit=cover">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-title" content="Telegram Web">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Telegram Web">
+    <meta name="application-name" content="Telegram Web">
+    <meta name="msapplication-TileColor" content="#2d89ef">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="color-scheme" content="light">
+    <meta name="google" content="notranslate">
     <title>Магазин</title>
     <link href=" https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -141,7 +155,7 @@ if (isset($_GET['page'])) {
     </div>
 
 </div>
-<script src="main.js?v=1.15"></script>
+<script src="main.js?v=1.435"></script>
 </body>
 
 </html>

@@ -11,18 +11,24 @@ const cartTable = document.querySelector('table');
 let page = 1;
 
 async function getProducts() {
-    const res = await fetch(`page2.php?page=${page}`);
+    const res = await fetch(`page2.php?page=${encodeURIComponent(page)}&category=${encodeURIComponent(category)}`);
     return res.text();
 }
 
 async function showProducts() {
     const products = await getProducts();
     if (products) {
-        productsContainer.insertAdjacentHTML('beforeend', products);
+        if (category === 'store') {
+            productsContainer.insertAdjacentHTML('beforeend', products);
+        } else if (category === 'frame') {
+            productsFrameContainer.insertAdjacentHTML('beforeend', products);
+        }
     } else {
         loaderBtn.classList.add('d-none');
-        productsContainer.insertAdjacentHTML('beforeend', "<p class='scale'>Извините, товаров больше нет.</p>");
-        productsContainer.classList.add('no-products-message');
+        loaderBtnFrame.classList.add('d-none');
+        const messageContainer = category === 'store' ? productsContainer : productsFrameContainer;
+        messageContainer.insertAdjacentHTML('beforeend', "<p class='scale'>Извините, товаров больше нет.</p>");
+        messageContainer.classList.add('no-products-message');
     }
 }
 
@@ -39,18 +45,25 @@ async function showProductsFrame() {
 
 // Общий обработчик для всех кнопок
 document.addEventListener('click', (e) => {
-    console.log('Clicked "Показать больше" button')
-    const loaderBtn = e.target.closest('#loader-btn');
-    const loaderBtnFrame = e.target.closest('#loader-btn-frame');
+    // const loaderBtn = e.target.closest('#loader-btn');
+    // const loaderBtnFrame = e.target.closest('#loader-btn-frame');
+    const loaderBtn = e.target.closest('[data-category]');
+
+    // if (loaderBtn) {
+    //     handleLoaderButtonClick('store');
+    // } else if (loaderBtnFrame) {
+    //     handleLoaderButtonClick('frame');
+    // }
 
     if (loaderBtn) {
-        handleLoaderButtonClick('store');
-    } else if (loaderBtnFrame) {
-        handleLoaderButtonClick('frame');
+        category = loaderBtn.dataset.category;
+        handleLoaderButtonClick(category);
+        console.log(`Clicked on loader-btn for ${category}`);
     }
 });
 
 function handleLoaderButtonClick(category) {
+    console.log('Clicked "Показать больше" for category:', category);
     loaderImg.classList.add('d-inline-block');
     loaderImgFrame.classList.add('d-inline-block');
     setTimeout(() => {
@@ -79,7 +92,7 @@ function getCart(setCart = false) {
 function add2Cart(product) {
     let id = product.id;
     if (id in cart) {
-        // console.log(cart[id]['qty'], id);
+        console.log(cart[id]['qty'], id);
         cart[id]['qty'] += 1;
     } else {
         cart[id] = product;
