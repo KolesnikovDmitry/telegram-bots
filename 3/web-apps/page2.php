@@ -155,7 +155,7 @@ if (isset($_GET['page'])) {
     </div>
 
 </div>
-<script src="main.js?v=1.435"></script>
+<script src="main.js?v=1.436"></script>
 </body>
 
 </html>
