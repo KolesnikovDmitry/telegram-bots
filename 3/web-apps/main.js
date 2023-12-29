@@ -15,31 +15,17 @@ async function getProducts() {
     return res.text();
 }
 
-async function showProducts() {
+async function showProducts(category) {
     const products = await getProducts();
+    const container = category === 'store' ? productsContainer : productsFrameContainer;
+
     if (products) {
-        if (category === 'store') {
-            productsContainer.insertAdjacentHTML('beforeend', products);
-        } else if (category === 'frame') {
-            productsFrameContainer.insertAdjacentHTML('beforeend', products);
-        }
+        container.insertAdjacentHTML('beforeend', products);
     } else {
         loaderBtn.classList.add('d-none');
         loaderBtnFrame.classList.add('d-none');
-        const messageContainer = category === 'store' ? productsContainer : productsFrameContainer;
-        messageContainer.insertAdjacentHTML('beforeend', "<p class='scale'>Извините, товаров больше нет.</p>");
-        messageContainer.classList.add('no-products-message');
-    }
-}
-
-async function showProductsFrame() {
-    const products_frame = await getProducts();
-    if (products_frame) {
-        productsFrameContainer.insertAdjacentHTML('beforeend', products_frame);
-    } else {
-        loaderBtnFrame.classList.add('d-none');
-        productsFrameContainer.insertAdjacentHTML('beforeend', "<p class='scale'>Извините, товаров больше нет.</p>");
-        productsFrameContainer.classList.add('no-products-message');
+        container.insertAdjacentHTML('beforeend', "<p class='scale'>Извините, товаров больше нет.</p>");
+        container.classList.add('no-products-message');
     }
 }
 
@@ -48,12 +34,6 @@ document.addEventListener('click', (e) => {
     // const loaderBtn = e.target.closest('#loader-btn');
     // const loaderBtnFrame = e.target.closest('#loader-btn-frame');
     const loaderBtn = e.target.closest('[data-category]');
-
-    // if (loaderBtn) {
-    //     handleLoaderButtonClick('store');
-    // } else if (loaderBtnFrame) {
-    //     handleLoaderButtonClick('frame');
-    // }
 
     if (loaderBtn) {
         category = loaderBtn.dataset.category;
@@ -70,9 +50,9 @@ function handleLoaderButtonClick(category) {
         page++;
 
         if (category === 'store') {
-            showProducts().then(() => productQty(cart));
+            showProducts('store').then(() => productQty(cart));
         } else if (category === 'frame') {
-            showProductsFrame().then(() => productQty(cart));
+            showProducts('frame').then(() => productQty(cart));
         }
 
         loaderImg.classList.remove('d-inline-block');
